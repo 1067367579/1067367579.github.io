@@ -177,7 +177,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-02-04 22:23:57 / 修改时间：22:38:53" itemprop="dateCreated datePublished" datetime="2024-02-04T22:23:57+08:00">2024-02-04</time>
+              <time title="创建时间：2024-02-04 22:23:57 / 修改时间：23:06:31" itemprop="dateCreated datePublished" datetime="2024-02-04T22:23:57+08:00">2024-02-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -203,7 +203,7 @@
           <h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><h3 id="比较排序"><a href="#比较排序" class="headerlink" title="比较排序"></a>比较排序</h3><p>排序讲究的速度是快，要以最快的速度按照指定的顺序排好</p>
 <p>默认升序排序</p>
 <p>排序的稳定性问题：</p>
-<img src="../笔记图片/CT-20240202134821.png" alt="CT-20240202134821" style="zoom:50%;" />
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240202134821.png" alt="CT-20240202134821" style="zoom:50%;" />
 
 <p>内部排序：在内存上的排序</p>
 <p>外部排序：数据量太大内存无法满足需要，将全部数据迁移到磁盘中进行排序</p>
@@ -239,7 +239,8 @@
 <p>所以最后堆排序的时间复杂度为O(n*logN)，所以 堆排序算是一种时间效率比较高的排序算法</p>
 <hr>
 <h4 id="快速排序："><a href="#快速排序：" class="headerlink" title="快速排序："></a>快速排序：</h4><p>Hoore法：</p>
-<p>思路：一个基准值位置指针pivot ,两个指针left，right，right先往左找到比pivot小的值再使<br>left往右找比pivot大的值，找到两个值要对调，不断循环直到left与right相遇，然后再<br>把这个相遇的点和基准点对调，然后再从基准值往左往右递归进行处理（类似于二叉树的递归）<br>递归结束的条件：start和end相等或者start&gt;end</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">思路：一个基准值位置指针pivot ,两个指针left，right，right先往左找到比pivot小的值再使</span><br><span class="line">left往右找比pivot大的值，找到两个值要对调，不断循环直到left与right相遇，然后再</span><br><span class="line">把这个相遇的点和基准点对调，然后再从基准值往左往右递归进行处理（类似于二叉树的递归）</span><br><span class="line">递归结束的条件：start和end相等或者start&gt;end</span><br></pre></td></tr></table></figure>
+
 <p>时间复杂度 最好是 O(n*logN)满二叉树&#x2F;完全二叉树 最坏是 O(N^2) 正序&#x2F;逆序 单分支树</p>
 <p>空间复杂度 O(logN) 满二叉树&#x2F;完全二叉树 最坏是 O(N) 单分支树</p>
 <p>挖坑法：</p>
@@ -254,10 +255,10 @@
 <p>如何解决数据是正序或者逆序时栈溢出问题呢？</p>
 <p>降低树的高度 也就是要调整key</p>
 <p>三数取中法 ：三个数字取到中间大的数字跟left换</p>
-<img src="../笔记图片/CT-20240203135601.png" alt="CT-20240203135601 " style="zoom:50%;" />
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240203135601.png" alt="CT-20240203135601 " style="zoom:50%;" />
 
 <p>三个数可能的排序顺序，根据这样来写代码：</p>
-<img src="../笔记图片/CT-20240203140813.png" alt="CT-20240203140813" style="zoom:50%;" />
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240203140813.png" alt="CT-20240203140813" style="zoom:50%;" />
 
 <p>对于一棵二叉树来说</p>
 <p>后两层的节点总数 一定是占了整棵树的2&#x2F;3</p>
@@ -289,7 +290,7 @@
 <li>分别对 512 M 排序，因为内存已经可以放的下，所以任意排序方式都可以</li>
 <li>进行 2路归并，同时对 200 份有序文件做归并过程，最终结果就有序了</li>
 </ol>
-<img src="../笔记图片/海量数据排序（外部排序）.png" alt="海量数据排序（外部排序）" style="zoom:50%;" />
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F%EF%BC%88%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F%EF%BC%89.png" alt="海量数据排序（外部排序）" style="zoom:50%;" />
 
 <hr>
 <h3 id="非比较排序"><a href="#非比较排序" class="headerlink" title="非比较排序"></a>非比较排序</h3><h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><p>思路：从0～9创建10个队列</p>
@@ -302,7 +303,7 @@
 <p>这个数组是个队列数组</p>
 <hr>
 <h4 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h4><p>有一组 0～9 之间的数据</p>
-<img src="../笔记图片/CT-20240204083804.png" alt="CT-20240204083804" style="zoom:50%;" />
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240204083804.png" alt="CT-20240204083804" style="zoom:50%;" />
 
 <p>创建一个计数数组 对应可能出现的每一个数（按照顺序）</p>
 <p>然后遍历原来的数组 统计每一个数出现的次数</p>
