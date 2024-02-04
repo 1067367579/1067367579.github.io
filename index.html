@@ -152,6 +152,151 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/04/%E9%A1%BA%E5%BA%8F%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SteveLu">
+      <meta itemprop="description" content="个人主要编程语言: Java">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SteveLu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/02/04/%E9%A1%BA%E5%BA%8F%E8%A1%A8/" class="post-title-link" itemprop="url">顺序表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-02-04 23:21:12 / 修改时间：23:21:19" itemprop="dateCreated datePublished" datetime="2024-02-04T23:21:12+08:00">2024-02-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h1><hr>
+<h4 id="字段："><a href="#字段：" class="headerlink" title="字段："></a>字段：</h4><p>​	底层结构：一个数组</p>
+<p>​	实际顺序表大小：size</p>
+<p>​	数组的容量：capacity</p>
+<p>​	默认容量（常量）:DEFAULT_CAPACITY</p>
+<hr>
+<h4 id="Add-方法："><a href="#Add-方法：" class="headerlink" title="Add 方法："></a>Add 方法：</h4><ul>
+<li><p>返回值：void</p>
+</li>
+<li><p>接收参数：尾插法（只有一个参数data）,指定位置插入（有位置参数pos，数据参数data）</p>
+</li>
+<li><p>要完成的工作：</p>
+<pre><code>1. 指定位置插入，要判断pos位置的合法性，&lt;0或者&gt;size都是不可以的，可以抛出异常（自定义要重载信息）
+1. 判断此时底层数组是否已满，如果满的话就要对数组进行扩容（搬到一个两倍大的数组里面）
+1. 尾插法直接在size位置放入数据，指定位置插入则要从后往前一次往后挪动一个位置，直到指定的pos位置，挪动后插入到pos位置
+1. 对size进行更新
+</code></pre>
+</li>
+</ul>
+<hr>
+<h4 id="Contains方法："><a href="#Contains方法：" class="headerlink" title="Contains方法："></a>Contains方法：</h4><ul>
+<li>返回值：boolean</li>
+<li>接收参数：要查找的对象</li>
+<li>循环遍历顺序表，长度为size，因为是引用类型，所以要用equals方法进行比较，如果相等就返回true</li>
+<li>最后返回false</li>
+</ul>
+<hr>
+<h4 id="indexOf方法："><a href="#indexOf方法：" class="headerlink" title="indexOf方法："></a>indexOf方法：</h4><ul>
+<li>返回值：Integer</li>
+<li>接收参数：要查找的对象</li>
+<li>剩余和上面Contains方法基本相同，找到区别是返回下标值，找不到就返回-1</li>
+</ul>
+<hr>
+<h4 id="get方法："><a href="#get方法：" class="headerlink" title="get方法："></a>get方法：</h4><ul>
+<li>返回值：元素类型</li>
+<li>接收参数：位置参数pos</li>
+<li>判断pos的合法性，pos&lt;0或者pos&gt;&#x3D;size直接抛出异常</li>
+<li>然后直接返回对应位置的元素即可</li>
+</ul>
+<hr>
+<h4 id="set方法（更新）"><a href="#set方法（更新）" class="headerlink" title="set方法（更新）"></a>set方法（更新）</h4><ul>
+<li>返回值：void</li>
+<li>接收参数：位置参数pos,值value</li>
+<li>和上面一样判断pos合法性</li>
+<li>然后直接设置即可</li>
+</ul>
+<hr>
+<h4 id="getSize方法："><a href="#getSize方法：" class="headerlink" title="getSize方法："></a>getSize方法：</h4><p>直接返回size</p>
+<hr>
+<h4 id="remove方法："><a href="#remove方法：" class="headerlink" title="remove方法："></a>remove方法：</h4><ul>
+<li><p>根据值通过indexOf方法找到位置，找不到就直接抛异常</p>
+</li>
+<li><p>找到了从pos开始，到size-2,（i&#x3D; pos;i&lt;size-1;i++）用[i] &#x3D; [i+1]的方式进行值的覆盖，然后使size-1即可</p>
+</li>
+<li><p>最后就直接使size-1</p>
+</li>
+<li><p>引用类型要使空出来的之前最后一个元素置为空</p>
+</li>
+</ul>
+<hr>
+<h4 id="clear方法："><a href="#clear方法：" class="headerlink" title="clear方法："></a>clear方法：</h4><ul>
+<li><p>引用类型要把之前的每一个位置都置空</p>
+</li>
+<li><p>直接让size为0</p>
+</li>
+</ul>
+<hr>
+<h4 id="Notes："><a href="#Notes：" class="headerlink" title="Notes："></a>Notes：</h4><ul>
+<li><p>用某个接口类型构造对象，就只能调用本接口的对应方法</p>
+</li>
+<li><p>？extends E : 是E的子类或者E本身</p>
+</li>
+<li><p>当调用不带参数的构造方法的时候，默认在第一次add的时候才会分配大小为10的内存，扩容是按照1.5倍的方式扩容</p>
+</li>
+<li><p>Java里面涉及到范围的地方一般都是左闭右开</p>
+</li>
+<li><p>subList并没有真正地把指定范围的数据拷贝出来，而是直接引用，所以更新会出现一些异常情况</p>
+</li>
+</ul>
+<hr>
+<h4 id="遍历方式："><a href="#遍历方式：" class="headerlink" title="遍历方式："></a>遍历方式：</h4><ul>
+<li>直接sout，内部的toString方法</li>
+<li>fori循环，get</li>
+<li>增强for</li>
+<li>迭代器遍历（迭代器还可以从后往前遍历，hasprevious(),构造时传入最后位置sIze）</li>
+</ul>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/04/%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -465,7 +610,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
