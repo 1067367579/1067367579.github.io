@@ -152,6 +152,192 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/18/map%E5%92%8Cset/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SteveLu">
+      <meta itemprop="description" content="个人主要编程语言: Java">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SteveLu">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/02/18/map%E5%92%8Cset/" class="post-title-link" itemprop="url">post</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-02-18 21:12:15 / 修改时间：21:12:50" itemprop="dateCreated datePublished" datetime="2024-02-18T21:12:15+08:00">2024-02-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Map和Set"><a href="#Map和Set" class="headerlink" title="Map和Set"></a>Map和Set</h2><p>TreeSet TreeMap底层是红黑树 – 是一种特殊的二叉搜索树</p>
+<p>二叉搜索树又称二叉排序树，它或者是一棵空树，或者是具有以下性质的二叉树:<br>若它的左子树不为空，则左子树上所有节点的值都小于根节点的值<br>若它的右子树不为空，则右子树上所有节点的值都大于根节点的值<br>它的左右子树也分别为二叉搜索树</p>
+<p>二叉搜索树的删除（难度）：</p>
+<p>删除完之后还要保证是二叉搜索树</p>
+<p>情况：（第一种 第二种情况都很简单 第三种情况很复杂）</p>
+<ol>
+<li><p>要删除的节点左右子树都为空： 看该节点是父节点的左还是右 相应的指针置空即可</p>
+</li>
+<li><p>要删除的节点只有一边为空：</p>
+<ol>
+<li><p>如果 要删除的节点是父节点的左子节点 </p>
+<ol>
+<li>若左子树为空，则让父节点的左子树为该节点的右子树</li>
+<li>若右子树为空，则让父节点的右子树为该节点的左子树</li>
+</ol>
+</li>
+<li><p>如果 要删除的节点是父节点的右子节点 同理</p>
+</li>
+</ol>
+</li>
+<li><p>要删除的节点左右子树都不为空</p>
+</li>
+</ol>
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240217114836.png" alt="CT-20240217114836" style="zoom:50%;" />
+
+<p>现在要删除90 节点 方法：替罪羊删除法</p>
+<p>思考：现在如何选择替换90的数呢 ，就要选择最接近的数 由二叉搜索树的逻辑结构可以得到75 和 95 的位置 （也就是左儿子的右最后孙节点 和 右儿子的左最后孙节点 最合适 最接近爷节点）</p>
+<p>删除并不是真正意义上的删除 是覆盖值</p>
+<p>找到替罪羊 就是两个节点中选一个 这种节点下面肯定是没有右子节点或者左子节点了</p>
+<p>删除原理 ： 二叉搜索树性质 最接近根节点的值 在中间位置 也就是左子树 之后一直往右走到尽头 右子树 之后一直往左走到尽头</p>
+<p>还要进行处理特殊情况 也就是 tp都没有走动 然后就使tp的left等于t的right，这样的做法是不行的 破坏了二叉搜索树的逻辑结构（即找不到替罪羊的情况）</p>
+<p>分析二叉搜索树 ：</p>
+<p>可能为完全二叉树 也可能为单链表 时间效率可能会出现极低的情况 因此出现了AVL树 </p>
+<p>AVL树会通过树的旋转 来降低树的高度 </p>
+<p>左旋 右旋 左右双旋 右左双旋</p>
+<p>红黑树 ：</p>
+<p>4个性质 通过节点的颜色来调整树 尽可能达到平等 旋转较少 </p>
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/20230717-map&set.png" alt="20230717-map&set" style="zoom:60%;" />
+
+<hr>
+<p>纯key模型 TreeSet. HashSet</p>
+<p>key-value模型 TreeMap HashMap</p>
+<p>key是唯一的 （二叉搜索树的性质）</p>
+<p>TreeMap 的key不能为空 value可以为空（因为要比较） HashMap的key和value就都可以为空</p>
+<p>Map可以用keySet方法 和values方法提取出key和value</p>
+<p>Map中插入重复的key 会直接覆盖之前的value </p>
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240217141741.png" alt="CT-20240217141741 " style="zoom:50%;" />
+
+<p>TreeSet的底层是一个TreeMap</p>
+<p>TreeMap&lt;E,Object&gt;</p>
+<p>不能存放重复的元素 最大的功能就是为集合去重</p>
+<p>TreeSet不能插入null的key HashSet可以</p>
+<hr>
+<h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><p>基本思想：理想的搜索方法，可以不经过任何比较，一次直接从表中得到要搜索的元素。 如果构造一种存储结构，通过某种函数(hashFunc)使元素的存储位置与它的关键码之间能够建立一一映射的关系，那么在查找时通过该函数可以很快找到该元素</p>
+<p>哈希冲突：对于两个数据元素的关键字 k<sub>i</sub> 和 k<sub>j</sub>(i !&#x3D; j)，有k<sub>i</sub> !&#x3D;  k<sub>j</sub>，但有：Hash( k<sub>i</sub> ) &#x3D;&#x3D; Hash(k<sub>i</sub> )，即：不同关键字通过相同哈希哈数计算出相同的哈希地址，该种现象称为<strong>哈希冲突</strong>或<strong>哈希碰撞</strong>。<br>把具有不同关键码而具有相同哈希地址的数据元素称为“同义词”。</p>
+<p>避免冲突：尽量降低冲突率，设计合理的哈希函数</p>
+<ol>
+<li>哈希函数的定义域必须包括需要存储的全部关键码，而如果散列表允许有m个地址时，其值域必须在0到m-1之间</li>
+<li>哈希函数计算出来的地址能均匀分布在整个空间中</li>
+<li>哈希函数应该比较简单</li>
+</ol>
+<p>常见哈希函数</p>
+<ol>
+<li>直接定制法–(常用)<br>取关键字的某个线性函数为散列地址：Hash（Key）&#x3D; A*Key + B 优点：简单、均匀 缺点：需要事先知道关<br>键字的分布情况 使用场景：适合查找比较小且连续的情况 面试题：字符串中第一个只出现一次字符</li>
+<li>除留余数法–(常用)<br>设散列表中允许的地址数为m，取一个不大于m，但最接近或者等于m的质数p作为除数，按照哈希函数：<br>Hash(key) &#x3D; key% p(p&lt;&#x3D;m),将关键码转换成哈希地址</li>
+</ol>
+<p>第二种思路：负载因子</p>
+<p>增加散列表的长度</p>
+<p>负载因子的定义：填入表中的元素个数&#x2F;散列表的长度</p>
+<p>负载因子要控制在0.75之内 超过就要扩容</p>
+<p>解决哈希冲突：</p>
+<ol>
+<li>闭散列：也叫开放定址法，当发生哈希冲突时，如果哈希表未被装满，说明在哈希表中必然还有空位置，那么可以把key存放到冲突位置中的“下一个” 空位置中去。</li>
+</ol>
+<p>二次探测：</p>
+<p>线性探测的缺陷是产生冲突的数据堆积在一块，这与其找下一个空位置有关系，因为找空位置的方式就是挨</p>
+<p>着往后逐个去找，因此二次探测为了避免该问题，找下一个空位置的方法为：H<sub>i</sub> &#x3D; ( H<sub>0</sub>+i<sup>2</sup> )% m, 或者：<br>&#x3D; (H<sub>0</sub> - i<sup>2</sup>)% m。其中：i &#x3D; 1,2,3…， 是通过散列函数Hash(x)对元素的关键码 key 进行计算得到的位置，<br>m是表的大小。 对于2.1中如果要插入44，产生冲突，使用解决后的情况为：</p>
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2024-02-17%2023.46.31.png" alt="截屏2024-02-17 23.46.31" style="zoom:50%;" />
+
+<ol start="2">
+<li>开散列（重点）</li>
+</ol>
+<p>和JDK中的做法是一样的</p>
+<p>开散列法又叫链地址法(开链法)，首先对关键码集合用散列函数计算散列地址，具有相同地址的关键码归于同一子<br>集合，每一个子集合称为一个桶，各个桶中的元素通过一个单链表链接起来，各链表的头结点存储在哈希表中。</p>
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240217154947.png" alt="CT-20240217154947" style="zoom:50%;" />
+
+<p>增删查改 复杂度都是O(1)</p>
+<p>负载因子会控制链表的长度 使其保留在常数项等级 O(1)</p>
+<p>hashMap 是 典型 的 浪费空间换取时间的过程</p>
+<p>面试题：问HashCode和equals的区别是什么？</p>
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240218032400.png" alt="CT-20240218032400" style="zoom:50%;" />
+
+<p>面试题：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/copy-list-with-random-pointer/">随机链表的复制</a></p>
+<p>这一题最容易掉到的坑就是 一个节点的next域和random域不能通过直接复制</p>
+<p>不然会造成新的链表仍然指向的是老的节点</p>
+<p>但我们现在又要记录起老链表的random关系 不然新链表的random关系无法建立</p>
+<p>所以这个时候我们就采用新旧链表一一对应的关系来确定某个节点的next和random应该指向谁（按照对应关系）</p>
+<p>所以此时我们要建立一个map key为老节点的地址 value为新节点的地址</p>
+<p>大致思路示意图：（建立新老节点地址映射表）</p>
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/CT-20240218080548.png" alt="CT-20240218080548" style="zoom:50%;" />
+
+<p>两遍：第一遍建立映射 第二遍设置每个节点的next和random 也就是把节点串起来的操作</p>
+<p>不可以用TreeMap 因为 node类型并未实现 comparable 接口 不可比较</p>
+<p>面试题：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/jewels-and-stones/">宝石与石头</a></p>
+<p>定义一个Set 集合 来存放宝石 遍历石头 每次遇到宝石计数器+1即可</p>
+<p>String.toCharArray() 把字符串变为字符数组 遍历</p>
+<p>HashSet 的时间效率 是 比TreeSet 要高的</p>
+<p>面试题：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/f88dafac00c8431fa363cd85a37c2d5e">旧键盘</a></p>
+<p>去重操作：优先考虑 Set 集合</p>
+<p>AC代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test0118;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getBrokenKey</span><span class="params">(String right,String wrong)</span></span><br><span class="line">    &#123;</span><br><span class="line">        right = right.toUpperCase();</span><br><span class="line">        wrong = wrong.toUpperCase();</span><br><span class="line">        Set&lt;Character&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> ch : wrong.toCharArray())&#123;</span><br><span class="line">            set.add(ch);</span><br><span class="line">        &#125;</span><br><span class="line">        LinkedHashSet&lt;Character&gt; hs = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> ch : right.toCharArray())&#123;</span><br><span class="line">            <span class="keyword">if</span>(!(set.contains(ch)))&#123;</span><br><span class="line">                hs.add(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">for</span> (Object o : hs.toArray()) &#123;</span><br><span class="line">            sb.append((<span class="type">char</span>) o);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">right</span> <span class="operator">=</span> <span class="string">&quot;7_This_is_a_test&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">wrong</span> <span class="operator">=</span> <span class="string">&quot;_hs_s_a_es&quot;</span>;</span><br><span class="line">        System.out.println(getBrokenKey(right, wrong));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>当然 这里其实也可以不用LinkedHashSet 我们可以创建一个新的set集合 边打印 边把此元素放到这个新set中 并且 要将进入条件加上 该元素不在这个新set集合里面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test0118;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getBrokenKey</span><span class="params">(String right,String wrong)</span></span><br><span class="line">    &#123;</span><br><span class="line">        right = right.toUpperCase();</span><br><span class="line">        wrong = wrong.toUpperCase();</span><br><span class="line">        Set&lt;Character&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> ch : wrong.toCharArray())&#123;</span><br><span class="line">            set.add(ch);</span><br><span class="line">        &#125;</span><br><span class="line">      	Set&lt;Character&gt; set1 = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">      	<span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> ch : right.toCharArray())&#123;</span><br><span class="line">            <span class="keyword">if</span>(!(set.contains(ch) &amp;&amp; !set1.contains(ch))</span><br><span class="line">                sb.append(ch);</span><br><span class="line">               	set1.add(ch);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">right</span> <span class="operator">=</span> <span class="string">&quot;7_This_is_a_test&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">wrong</span> <span class="operator">=</span> <span class="string">&quot;_hs_s_a_es&quot;</span>;</span><br><span class="line">        System.out.println(getBrokenKey(right, wrong));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>面试题：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/top-k-frequent-words/"> 前K个高频单词</a></p>
+<p>统计单词出现的次数</p>
+<p>使用PriorityQueue 使用默认的小根堆即可 排序方式 先 按照值的大小降序排序 再 按照 key的大小升序排序 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title function_">topKFrequent</span><span class="params">(String[] words, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="comment">//1. 统计每个单词出现的次数</span></span><br><span class="line">        HashMap&lt;String,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!map.containsKey(word)) &#123;</span><br><span class="line">                map.put(word, <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="type">Integer</span> <span class="variable">count</span> <span class="operator">=</span> map.get(word);</span><br><span class="line">                map.put(word, count + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//用优先级队列 排序顺序 优先按照值的大小降序排序 然后再按key升序排序</span></span><br><span class="line">        PriorityQueue&lt;Map.Entry&lt;String,Integer&gt;&gt; que = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Map.Entry&lt;String, Integer&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Map.Entry&lt;String, Integer&gt; o1, Map.Entry&lt;String, Integer&gt; o2)</span> &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value1</span> <span class="operator">=</span> o1.getValue();</span><br><span class="line">                <span class="type">int</span> <span class="variable">value2</span> <span class="operator">=</span> o2.getValue();</span><br><span class="line">                <span class="keyword">if</span>(value1 != value2)&#123;</span><br><span class="line">                    <span class="keyword">return</span> value2 - value1;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> o1.getKey().compareTo(o2.getKey());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            que.offer(entry);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            list.add(que.poll().getKey());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>HashMap 的 源码解析：</p>
+<img src="https://markdownphotos.oss-cn-shenzhen.aliyuncs.com/img/20230719-map&set.png" alt="20230719-map&set" style="zoom:50%;" />
+
+<p>下来还要自己再分析分析HashMap的put方法和get方法 写一篇博客……</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/02/04/missing-semester/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1383,7 +1569,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
