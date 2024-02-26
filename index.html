@@ -54,7 +54,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-02-25 20:55:50'
+  postUpdate: '2024-02-26 09:36:48'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -163,37 +163,37 @@ BitSet概念及自定义实现：位图：有些资料叫bitMap
 一个字节 8 个比特位 
 
 内存的利用效率非常高
-40亿个不重复的无符号整型用位图存储 —》 存储空间512MB
+40亿个不重复的无符号整型用位图存储 –》 存储空间512MB
 实现位图 byte[]
-arrayIndex = num/8 数组的下标
+arrayIndex &#x3D; num&#x2F;8 数组的下标
 num % 8 求出数据在具体数组位置的下标
 所谓位图，就是用每一位来存放某种状态，适用于海量数据，整数，数据无重复的场景。通常是用来判断某个数据存不存在的。
 源码用的是long[]. 这里我们用的是byte[]
 用相应的映射关系表示状态
 BitSet的实现原理博客
 自定义BitSet代码
-12345678910111213141516171819202 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树"><img class="post-bg" src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402231612915.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-23T03:49:22.000Z" title="发表于 2024-02-23 11:49:22">2024-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">红黑树
-红黑树概念：红黑树，是一种二叉搜索树，但在每个结点上增加一个存储位表示结点的颜色，可以是Red或Black。 通过对任何一条从根到叶子的路径上各个结点着色方式的限制，==红黑树确保没有一条路径会比其他路径长出俩倍，因而是接近平衡的。
+1234567891011121314151 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树"><img class="post-bg" src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402231612915.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-23T03:49:22.000Z" title="发表于 2024-02-23 11:49:22">2024-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">红黑树
+红黑树概念：红黑树，是一种二叉搜索树，但在每个结点上增加一个存储位表示结点的颜色，可以是Red或Black。 通过对任何一条从根到叶子的路径上各个结点着色方式的限制，&#x3D;&#x3D;红黑树确保没有一条路径会比其他路径长出俩倍，因而是接近平衡的。
 红黑树并不是绝对平衡 只是相对平衡，而AVL树是绝对平衡的
 
 红黑树性质：
 每个结点不是红色就是黑色
 根节点是黑色的
-如果一个节点是红色的，则它的两个孩子结点是黑色的【==没有2个连续的红色节点==】
+如果一个节点是红色的，则它的两个孩子结点是黑色的【&#x3D;&#x3D;没有2个连续的红色节点&#x3D;&#x3D;】
 对于每个结点，从该结点到其所有后代叶结点的简单路径上，均 包含相同数目的黑色结点
 每个叶子结点都是黑色的(此处的叶子结点指的是空结点NIL)
 
 
+
 为什么 有这五点性质 就能保证最长路径中的节点个数不会超过最短路径节点个数的两倍？
  最短路径 ： 当前路径上全部都是黑色的节点
-最长路径： 红黑交替（保证了与最短路径黑色个数相同 同时红色尽可能的多）—红色的儿子不能是红色
-​        又因为根节点必须是黑色 所以极端情况下最长路径就是最短路径的两倍
-说明：一个正常的二叉树 不会出现这种一条路径全都是黑色的情况（这种情况是完全二叉树）
-NIL在红黑树 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/22/AVL%E6%A0%91-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/" title="AVL树:二叉平衡树">AVL树:二叉平衡树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-22T08:52:32.000Z" title="发表于 2024-02-22 16:52:32">2024-02-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">二叉平衡树找工作：​    提前批：准备好了 就可以试试 不要等
-​    没准备好： —》
-​    什么时候准备好？
-​    怎么准备？
-​    简历 -&gt; 面试官问你简历的那些重点？ 知道吗？
+最长路径： 红黑交替（保证了与最短路径黑色个数相同 同时红色尽可能的多）–红色的儿子不能是红色
+​		又因为根节点必须是黑色 所以极端情况下最长路径就是最短路径的两倍
+说明：一个正常的二叉树 不会出现这种一条路径全都是 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/22/AVL%E6%A0%91-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/" title="AVL树:二叉平衡树">AVL树:二叉平衡树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-22T08:52:32.000Z" title="发表于 2024-02-22 16:52:32">2024-02-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">二叉平衡树找工作：​	提前批：准备好了 就可以试试 不要等
+​	没准备好： –》
+​	什么时候准备好？
+​	怎么准备？
+​	简历 -&gt; 面试官问你简历的那些重点？ 知道吗？
 
 课看完了 -》项目至少看一个
 
@@ -225,14 +225,14 @@ NIL在红黑树 ...</div></div></div><div class="recent-post-item"><div class="r
 提前批：提前批会在正式大规模招聘之前先招优秀的，提前准备好的
 SP专场：特殊offer 普通15w 特殊25w
 
-高阶数据结构的学习大公司问的比较多：AVL ？  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/19/%E5%8F%8D%E5%B0%84%E6%9E%9A%E4%B8%BELambda-JavaSE%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/" title="反射枚举Lambda+JavaSE与数据结构复习">反射枚举Lambda+JavaSE与数据结构复习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-19T14:37:36.000Z" title="发表于 2024-02-19 22:37:36">2024-02-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E8%AF%AD%E6%B3%95/">Java语法</a></span></div><div class="content">反射枚举Lambda
+高阶数据结构的学习大公司问的比较多：AVL ？ 
+会让手写代码吗？
+​	插入是 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/19/%E5%8F%8D%E5%B0%84%E6%9E%9A%E4%B8%BELambda-JavaSE%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/" title="反射枚举Lambda+JavaSE与数据结构复习">反射枚举Lambda+JavaSE与数据结构复习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-19T14:37:36.000Z" title="发表于 2024-02-19 22:37:36">2024-02-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E8%AF%AD%E6%B3%95/">Java语法</a></span></div><div class="content">反射枚举Lambda
 反射
-
 
 
 类名
 用途
-
 
 
 
@@ -241,7 +241,7 @@ class类
 
 
 Field类
-代表类的成员变量/类的属性
+代表类的成员变量&#x2F;类的属性
 
 
 Method类
@@ -250,8 +250,6 @@ Method类
 
 Constructor类
 代表类的构造方法
-
-
 
 
 Class类 反射机制的起源
@@ -268,31 +266,38 @@ Class 对象 只有一个 无论获取多少次 都是那个Class对象
 优点：
 
 对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法
-增加程序的灵活性和扩展性，降低耦合性，提高自 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/19/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="两数之和">两数之和</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-19T06:49:06.000Z" title="发表于 2024-02-19 14:49:06">2024-02-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a></span></div><div class="content">LeetCode热题100 第一题 两数之和两树之和思路： 重点 找到相应的值和对应的下标 建立关系 所以 我们这里要使用HashMap HashMap的时间效率最高 查找 插入 的时间复杂度都为O(1)我们要尽量在一轮循环中结束 把时间复杂度控制在O(N) 那么我们就可以采取边遍历数组边对hashMap操作的思路代码与具体思路如下：12345678910111213141516171819202122232425262728293031323334353637383940class Solution &#123;    public int[] twoSum(int[] nums, int target) &#123;        // int front = 0;        // int []res = new int[2];        // while(front!=nums.length-1)        // &#123;        //     for(int i=front+1;i&lt;nums.length;i++)        //     &#1 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/18/%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%B3%9B%E5%9E%8B/" title="字符串与泛型">字符串与泛型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-18T14:05:35.000Z" title="发表于 2024-02-18 22:05:35">2024-02-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E8%AF%AD%E6%B3%95/">Java语法</a></span></div><div class="content">字符串
-双引号引起来的 —&gt; 字符串常量 —》存放在字符串常量池当中 StringPool
-StringTable —&gt; C++
+增加程序的灵活性和扩展性，降低耦合性，提高 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/19/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="两数之和">两数之和</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-19T06:49:06.000Z" title="发表于 2024-02-19 14:49:06">2024-02-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a></span></div><div class="content">LeetCode热题100 第一题 两数之和两树之和思路： 重点 找到相应的值和对应的下标 建立关系 所以 我们这里要使用HashMap HashMap的时间效率最高 查找 插入 的时间复杂度都为O(1)我们要尽量在一轮循环中结束 把时间复杂度控制在O(N) 那么我们就可以采取边遍历数组边对hashMap操作的思路代码与具体思路如下：
+12345678910111213141516171819202122232425262728293031323334353637383940class Solution &#123;    public int[] twoSum(int[] nums, int target) &#123;        // int front = 0;        // int []res = new int[2];        // while(front!=nums.length-1)        // &#123;        //     for(int i=front+1;i&lt;nums.length;i++)        //     &# ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/18/%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%B3%9B%E5%9E%8B/" title="字符串与泛型">字符串与泛型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-18T14:05:35.000Z" title="发表于 2024-02-18 22:05:35">2024-02-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E8%AF%AD%E6%B3%95/">Java语法</a></span></div><div class="content">字符串
+双引号引起来的 –&gt; 字符串常量 –》存放在字符串常量池当中 StringPool
+StringTable –&gt; C++
 存储字符串常量的时候 会先检查当前常量池是否存在 你所要存储的常量
 java程序中 字面类型的常量经常使用 为了使程序的运行速度更快 更节省内存 java为8种基本数据类型 和String类提供了常量池
 池是一种编程中常见的 重要的提升效率的方式
 Java8以后池在堆当中
 new一定会分配内存 一个value 一个hash 两个域 
 
+
+ 
+
 Intern()方法
 比如String类型的变量s1调用intern()方法 会把自己的值扔到常量池中 那么之后的字面量就是这个常量池中的对象了 也即之后的s2赋值相同字面量 用等号与s1进行比较的时候 会出现相等的情况
 
 
+
 泛型通配符 ？ 不知道自己要获取的是什么类型的数据
+
 
 泛型上界： ？ extends xxx 以某类型作为上界 限制可以传入的泛型
 泛型下界： ？super xxx 以某类型作为下界
 上界和下界都是闭区间
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/18/map%E5%92%8Cset/" title="Map和Set">Map和Set</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-18T13:12:15.000Z" title="发表于 2024-02-18 21:12:15">2024-02-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">Map和SetTreeSet TreeMap底层是红黑树 — 是一种特殊的二叉搜索树
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/18/map%E5%92%8Cset/" title="Map和Set">Map和Set</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-18T13:12:15.000Z" title="发表于 2024-02-18 21:12:15">2024-02-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">Map和SetTreeSet TreeMap底层是红黑树 – 是一种特殊的二叉搜索树
 二叉搜索树又称二叉排序树，它或者是一棵空树，或者是具有以下性质的二叉树:若它的左子树不为空，则左子树上所有节点的值都小于根节点的值若它的右子树不为空，则右子树上所有节点的值都大于根节点的值它的左右子树也分别为二叉搜索树
 二叉搜索树的删除（难度）：
 删除完之后还要保证是二叉搜索树
 情况：（第一种 第二种情况都很简单 第三种情况很复杂）
 
 要删除的节点左右子树都为空： 看该节点是父节点的左还是右 相应的指针置空即可
+
 要删除的节点只有一边为空：
 
 如果 要删除的节点是父节点的左子节点 
@@ -309,9 +314,10 @@ Intern()方法
 
 
 
+
 现在要删除90 节点 方法：替罪羊删除法
 思考：现在如何选择替换90的数呢 ，就要选择最接近的数 由二叉搜索树的逻辑结构可以得到75 和 95 的位置 （也就是左儿子的右最后孙节点 和 右儿子的左最后孙节点 最合适 最接近爷节点）
-删除 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/04/missing-semester/" title="missing semester">missing semester</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-04T15:46:34.000Z" title="发表于 2024-02-04 23:46:34">2024-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/skills/">skills</a></span></div><div class="content">Missing semester1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021031041051061071081091101111121131141151161171181191201211221231241251261271281291301311321331341351361371381391401411421431441451461471481491501511521531541551561571581591601611621631641651661671681691701711721731741751761771781791801811821831841851861871881891901911921931941951961971 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/04/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树">二叉树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-04T15:29:22.000Z" title="发表于 2024-02-04 23:29:22">2024-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">树
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/04/missing-semester/" title="missing semester">missing semester</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-04T15:46:34.000Z" title="发表于 2024-02-04 23:46:34">2024-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/skills/">skills</a></span></div><div class="content">Missing semester1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021031041051061071081091101111121131141151161171181191201211221231241251261271281291301311321331341351361371381391401411421431441451461471481491501511521531541551561571581591601611621631641651661671681691701711721731741751761771781791801811821831841851861871881891901911921931941951961971 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/04/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="二叉树">二叉树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-04T15:29:22.000Z" title="发表于 2024-02-04 23:29:22">2024-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">树
 二叉树性质：叶子节点个数为度为2节点个数+1 的证明过程
 
 树的性质
@@ -320,37 +326,40 @@ Intern()方法
 
 
 
+
 二叉树性质：
 
 若规定根结点的层数为1，则一棵非空二叉树的第i层上最多有 (i&gt;0)个结点
-若规定只有根结点的二叉树的深度为1，则深度为K的二叉树的最大结点数是 (k&gt;=0)
+若规定只有根结点的二叉树的深度为1，则深度为K的二叉树的最大结点数是 (k&gt;&#x3D;0)
 对任何一棵二叉树, 如果其叶结点个数为 n0, 度为2的非叶结点个数为 n2,则有n0＝n2＋1
 具有n个结点的完全二叉树的深度k为 上取整
-对于具有n个结点的完全二叉树，如果按照从上至下从左至右的顺序对所有节点从0开始编号，则对于序号为i的结点有：若i&gt;0，双亲序号：(i-1)/2；i=0，i为根结点编号，无双亲结点若2i+1&lt;n，左孩子序号：2i+1，否则无左孩子若2i+2&lt;n，右孩子序号：2i+2，否则无右孩子
+对于具有n个结点的完全二叉树，如果按照从上至下从左至右的顺序对所有节点从0开始编号，则对于序号为i的结点有：若i&gt;0，双亲序号：(i-1)&#x2F;2；i&#x3D;0，i为根结点编号，无双亲结点若2i+1&lt;n，左孩子序号：2i+1，否则无左孩子若2i+2&lt;n，右孩子序号：2i+2，否则无右孩子
 
 题目：
 
+
 思路： 完全二叉树 节点为偶数个 根据计算二叉树的节点个数性质来算 度为1的个数应该为1 因为有一个根节点和一个节点组成偶数
-2n = n0 +1 +n2 &amp;&amp; n0 = n2+1 那所以叶子节点的个数n0 = n 选A
-总结：有偶数个节点的完全二 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/04/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" title="优先级队列">优先级队列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-04T15:28:13.000Z" title="发表于 2024-02-04 23:28:13">2024-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">优先级队列底层使用了堆 堆就是完全二叉树的基础上进行了一些调整
+2n &#x3D; n0 +1 +n2 &amp;&amp; n0 &#x3D; n2+1 那所以叶子节 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/04/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" title="优先级队列">优先级队列</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-04T15:28:13.000Z" title="发表于 2024-02-04 23:28:13">2024-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">优先级队列底层使用了堆 堆就是完全二叉树的基础上进行了一些调整
 按完全二叉树的顺序存储方式存储 在一个一维数组中
 堆的性质：堆中某个节点的值总是不大于或不小于其父节点的值；堆总是一棵完全二叉树。
 根节点小于左右孩子 并且是一个完全二叉树 小根堆
 
+
 根节点比左右孩子大 大根堆
 
+
 数组中存储的是层序遍历的值
-已知孩子节点下标 父节点下标为(i-1)/2
-如果2  i + 1 小于节点个数，则节点i的左孩子下标为2  i + 1，否则没有左孩子如果2  i + 2 小于节点个数，则节点i的右孩子下标为2  i + 2，否则没有右孩子
+已知孩子节点下标 父节点下标为(i-1)&#x2F;2
+如果2 * i + 1 小于节点个数，则节点i的左孩子下标为2 * i + 1，否则没有左孩子如果2 * i + 2 小于节点个数，则节点i的右孩子下标为2 * i + 2，否则没有右孩子
 由一个初始数组创建大根堆：
 从最后一棵树开始（这种树只有两层），向前面的节点进行遍历方法，先找到这棵树的根节点，再调用找到值更大的节点，与根节点的值进行比较，如果比根节点的值大，那么就调换位置，如此下去将p置于c的位置，再次迭代，直到找不到子节点（子节点的下标值大于数组的最大下标）
 方法的参数（一个父节点用来定义一棵树，树的节点个数）
 假设树的高度为h
-​    T(n) = 2^0 (h-1) + 2^1(h-2) +….+2^(h-2)*1 结合思想来算时间 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Lu Jingxiang</div><div class="author-info__description">Language: Java</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/1067367579"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/1067367579" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1067367579@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/25/%E4%BD%8D%E5%9B%BE-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE/" title="位图&amp;布隆过滤器&amp;海量数据">位图&amp;布隆过滤器&amp;海量数据</a><time datetime="2024-02-25T12:51:36.000Z" title="发表于 2024-02-25 20:51:36">2024-02-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树"><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402231612915.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"/></a><div class="content"><a class="title" href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><time datetime="2024-02-23T03:49:22.000Z" title="发表于 2024-02-23 11:49:22">2024-02-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/22/AVL%E6%A0%91-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/" title="AVL树:二叉平衡树">AVL树:二叉平衡树</a><time datetime="2024-02-22T08:52:32.000Z" title="发表于 2024-02-22 16:52:32">2024-02-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/19/%E5%8F%8D%E5%B0%84%E6%9E%9A%E4%B8%BELambda-JavaSE%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/" title="反射枚举Lambda+JavaSE与数据结构复习">反射枚举Lambda+JavaSE与数据结构复习</a><time datetime="2024-02-19T14:37:36.000Z" title="发表于 2024-02-19 22:37:36">2024-02-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/19/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="两数之和">两数之和</a><time datetime="2024-02-19T06:49:06.000Z" title="发表于 2024-02-19 14:49:06">2024-02-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+​	T(n) &#x3D; 2^0 (h-1) + 2^1(h-2) +….+2^(h- ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Lu Jingxiang</div><div class="author-info__description">Language: Java</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/1067367579"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/1067367579" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1067367579@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/25/%E4%BD%8D%E5%9B%BE-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8-%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE/" title="位图&amp;布隆过滤器&amp;海量数据">位图&amp;布隆过滤器&amp;海量数据</a><time datetime="2024-02-25T12:51:36.000Z" title="发表于 2024-02-25 20:51:36">2024-02-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树"><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402231612915.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"/></a><div class="content"><a class="title" href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><time datetime="2024-02-23T03:49:22.000Z" title="发表于 2024-02-23 11:49:22">2024-02-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/22/AVL%E6%A0%91-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/" title="AVL树:二叉平衡树">AVL树:二叉平衡树</a><time datetime="2024-02-22T08:52:32.000Z" title="发表于 2024-02-22 16:52:32">2024-02-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/19/%E5%8F%8D%E5%B0%84%E6%9E%9A%E4%B8%BELambda-JavaSE%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/" title="反射枚举Lambda+JavaSE与数据结构复习">反射枚举Lambda+JavaSE与数据结构复习</a><time datetime="2024-02-19T14:37:36.000Z" title="发表于 2024-02-19 22:37:36">2024-02-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/19/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="两数之和">两数之和</a><time datetime="2024-02-19T06:49:06.000Z" title="发表于 2024-02-19 14:49:06">2024-02-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E8%AF%AD%E6%B3%95/"><span class="card-category-list-name">Java语法</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/skills/"><span class="card-category-list-name">skills</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">10</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">数据结构</a> <a href="/tags/Java%E8%AF%AD%E6%B3%95/" style="font-size: 1.3em; color: #99a1ac">Java语法</a> <a href="/tags/missing-semester/" style="font-size: 1.1em; color: #999">missing-semester</a> <a href="/tags/LeetCode%E7%83%AD%E9%A2%98100/" style="font-size: 1.1em; color: #999">LeetCode热题100</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">15</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-02-25T12:55:50.182Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Lu Jingxiang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/missing-semester/" style="font-size: 1.1em; color: #999">missing-semester</a> <a href="/tags/LeetCode%E7%83%AD%E9%A2%98100/" style="font-size: 1.1em; color: #999">LeetCode热题100</a> <a href="/tags/Java%E8%AF%AD%E6%B3%95/" style="font-size: 1.3em; color: #99a1ac">Java语法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">数据结构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">15</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">15</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-02-26T01:36:48.317Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Lu Jingxiang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
