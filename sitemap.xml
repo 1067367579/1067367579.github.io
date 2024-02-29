@@ -180,7 +180,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Java%E8%AF%AD%E6%B3%95/</loc>
+    <loc>http://example.com/tags/missing-semester/</loc>
     <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -194,7 +194,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/missing-semester/</loc>
+    <loc>http://example.com/tags/Java%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -210,7 +210,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/Java%E8%AF%AD%E6%B3%95/</loc>
+    <loc>http://example.com/categories/skills/</loc>
     <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -224,7 +224,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/skills/</loc>
+    <loc>http://example.com/categories/Java%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2024-02-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
