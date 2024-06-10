@@ -1,0 +1,1044 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>苍穹外卖——前端环境搭建 | Lu Jingxiang's blog</title><meta name="author" content="Lu Jingxiang"><meta name="copyright" content="Lu Jingxiang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前端环境搭建、员工管理课程内容 前端环境搭建  员工分页查询  启用禁用员工账号  新增员工  修改员工   1. 前端环境搭建1.1 技术选型本项目使用到的前端技术如下：  node.js vue ElementUI axios vuex vue-router typescript  1.2 熟悉前端代码结构直接导入课程资料中提供的苍穹外卖项目前端初始工程，此工程中已经开发了部分功能，后续我们在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="苍穹外卖——前端环境搭建">
+<meta property="og:url" content="http://example.com/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="Lu Jingxiang&#39;s blog">
+<meta property="og:description" content="前端环境搭建、员工管理课程内容 前端环境搭建  员工分页查询  启用禁用员工账号  新增员工  修改员工   1. 前端环境搭建1.1 技术选型本项目使用到的前端技术如下：  node.js vue ElementUI axios vuex vue-router typescript  1.2 熟悉前端代码结构直接导入课程资料中提供的苍穹外卖项目前端初始工程，此工程中已经开发了部分功能，后续我们在">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-06-10T10:16:41.000Z">
+<meta property="article:modified_time" content="2024-06-10T10:17:31.673Z">
+<meta property="article:author" content="Lu Jingxiang">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '苍穹外卖——前端环境搭建',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-10 18:17:31'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Lu Jingxiang's blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Lu Jingxiang's blog"><span class="site-name">Lu Jingxiang's blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">苍穹外卖——前端环境搭建</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-10T10:16:41.000Z" title="发表于 2024-06-10 18:16:41">2024-06-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-06-10T10:17:31.673Z" title="更新于 2024-06-10 18:17:31">2024-06-10</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="苍穹外卖——前端环境搭建"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前端环境搭建、员工管理"><a href="#前端环境搭建、员工管理" class="headerlink" title="前端环境搭建、员工管理"></a>前端环境搭建、员工管理</h1><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
+<li><p>前端环境搭建</p>
+</li>
+<li><p>员工分页查询</p>
+</li>
+<li><p>启用禁用员工账号</p>
+</li>
+<li><p>新增员工</p>
+</li>
+<li><p>修改员工</p>
+</li>
+</ul>
+<h2 id="1-前端环境搭建"><a href="#1-前端环境搭建" class="headerlink" title="1. 前端环境搭建"></a>1. 前端环境搭建</h2><h3 id="1-1-技术选型"><a href="#1-1-技术选型" class="headerlink" title="1.1 技术选型"></a>1.1 技术选型</h3><p>本项目使用到的前端技术如下：</p>
+<ul>
+<li>node.js</li>
+<li>vue</li>
+<li>ElementUI</li>
+<li>axios</li>
+<li>vuex</li>
+<li>vue-router</li>
+<li>typescript</li>
+</ul>
+<h3 id="1-2-熟悉前端代码结构"><a href="#1-2-熟悉前端代码结构" class="headerlink" title="1.2 熟悉前端代码结构"></a>1.2 熟悉前端代码结构</h3><p>直接导入课程资料中提供的苍穹外卖项目前端初始工程，此工程中已经开发了部分功能，后续我们在此基础上开发新功能即可。</p>
+<p>导入后的效果如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817349.png" alt="image-20231009112322302"></p>
+<p>主要代码在src目录中，src目录结构如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817350.png" alt="image-20231009112436925"></p>
+<p>下面重点介绍一下src中的重点文件和目录：</p>
+<ul>
+<li>api：存放封装了Ajax请求文件的目录</li>
+<li>components：公共组件存放目录</li>
+<li>views：存放视图组件的目录</li>
+<li>App.vue：项目的主组件，页面的入口文件</li>
+<li>main.ts：整个项目的入口文件</li>
+<li>router.ts：路由文件</li>
+</ul>
+<p>注意：我们上面导入的初始工程中并没有前端项目运行所依赖的JS包，需要在终端通过 npm install 命令进行安装。安装完成后，可以看到生成了node_modules目录，目录中就是安装的JS包，效果如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817351.png" alt="image-20231009154944721"></p>
+<p>接下来，我们通过初始工程中已经完成的登录功能来跟踪程序的执行过程，熟悉前端项目的代码结构。</p>
+<p>首先需要启动前端项目，命令为：npm run serve，然后访问前端项目，效果如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817352.png" alt="image-20231010103544159"></p>
+<p>注意：需要同时启动后端 java 服务，才能进行前后端交互。</p>
+<p>具体操作的步骤如下：</p>
+<p>① 获得登录页面路由地址</p>
+<p>​	登录页面完整的访问地址为 <a target="_blank" rel="noopener" href="http://localhost:8888/#/login%EF%BC%8C%E5%85%B6%E4%B8%AD%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2%E7%9A%84%E8%B7%AF%E7%94%B1%E5%9C%B0%E5%9D%80%E4%B8%BA">http://localhost:8888/#/login，其中登录页面的路由地址为</a> &#x2F;login，我们需要通过此路由地址找到对应的登录视图组件</p>
+<p>② 从main.ts中找到路由文件</p>
+<p>​	main.ts是整个前端项目的入口文件，在此文件中会创建Vue实例，在创建Vue实例时需要传入路由对象，所以从此文件中可以找到对应的路由文件位置。如下所示：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817353.png" alt="image-20231011101828271"></p>
+<p>③ 从路由文件中找到登录视图组件</p>
+<p>​	在路由文件中会配置整个项目所有的路由映射规则，我们只需要找到 &#x2F;login 这个路径对应的实体组件即可。如下所示：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817354.png" alt="image-20231011102024084"></p>
+<p>④ 从登录视图组件中找到登录方法</p>
+<p>​	从上面的路由文件可以确定登录视图组件就是src&#x2F;views&#x2F;login&#x2F;index.vue，此时就可以打开这个文件，然后仔细阅读代码，找到登录方法，如下所示：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817355.png" alt="image-20231011102341145"></p>
+<p>⑤ 跟踪登录方法的执行过程</p>
+<p>​	找到登录方法后，就需要跟踪代码的执行过程，主要就是观察前后端的交互过程。例如前端如何发送的Ajax请求，后端返回的数据格式等等</p>
+<h2 id="2-员工分页查询"><a href="#2-员工分页查询" class="headerlink" title="2. 员工分页查询"></a>2. 员工分页查询</h2><h3 id="2-1-需求分析和接口设计"><a href="#2-1-需求分析和接口设计" class="headerlink" title="2.1 需求分析和接口设计"></a>2.1 需求分析和接口设计</h3><p>根据产品原型来了解需求，员工分页查询的产品原型如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817356.png" alt="image-20231011104301458"></p>
+<p>业务规则：</p>
+<ul>
+<li>根据页码展示员工信息(员工姓名、账号、手机号、账号状态、最后操作时间等)</li>
+<li>每页展示10条数据</li>
+<li>分页查询时可以根据需要，输入员工姓名进行查询</li>
+</ul>
+<p>要展示员工分页数据，就需要前后端进行数据交互，对应的接口如下：</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> &#x2F;admin&#x2F;employee&#x2F;page</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>否</td>
+<td>张三</td>
+<td>员工姓名</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>1</td>
+<td>页码</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td>10</td>
+<td>每页记录数</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>null</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ total</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ records</td>
+<td>object []</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>item 类型: object</td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ username</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ password</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ phone</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ sex</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ idNumber</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ status</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ createTime</td>
+<td>string,null</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ updateTime</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ createUser</td>
+<td>number,null</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ updateUser</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2-2-代码开发"><a href="#2-2-代码开发" class="headerlink" title="2.2 代码开发"></a>2.2 代码开发</h3><p>要开发前端代码，首先需要找到对应的组件。从路由文件 router.ts 中找到员工管理页面（组件）。</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817357.png" alt="image-20231012100658784"></p>
+<p>可以看到，员工管理页面（组件）的位置为：src&#x2F;views&#x2F;employee&#x2F;index.vue。我们只需要在此文件中开发员工分页查询相关的前端代码即可，整个开发过程大概可以分为以下几个关键步骤：</p>
+<ol>
+<li>根据产品原型，制作页面头部效果（输入框、查询按钮等）</li>
+<li>为查询按钮绑定单击事件，发送Ajax请求，查询员工分页数据，实现前后端交互</li>
+<li>提供 vue 的初始化方法，在页面加载后就查询分页数据</li>
+<li>使用ElementUI提供的表格组件展示分页数据</li>
+<li>使用ElementUI提供的分页条组件实现翻页效果</li>
+</ol>
+<p>注意：开发过程中，并不是所有的代码都实现了再测试，而是开发一部分，就需要测试一下，看效果，如果有问题再调整。没有问题，再继续开发、测试。所以，这是一个逐渐完善的过程。下面我们就按照上面的几个关键步骤来开发，每开发完一个关键步骤，就需要测试一下，来验证我们的代码是否正确。</p>
+<h4 id="2-2-1-制作页面头部效果"><a href="#2-2-1-制作页面头部效果" class="headerlink" title="2.2.1 制作页面头部效果"></a>2.2.1 制作页面头部效果</h4><p>根据产品原型，制作页面头部效果（输入框、查询按钮等）。产品原型中的头部效果如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817358.png" alt="image-20231012104130496"></p>
+<p>注意：输入框和按钮都是使用 ElementUI 提供的组件，对于前端的组件只需要参考 ElementUI 提供的文档，进行修改即可。实现代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tableBar&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">style</span>=<span class="string">&quot;margin-right: 5px&quot;</span>&gt;</span></span><br><span class="line">        员工姓名: </span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入员工姓名&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 15%&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin-left: 20px&quot;</span>&gt;</span>查询<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">style</span>=<span class="string">&quot;float: right&quot;</span>&gt;</span>+添加员工<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>开发完上面代码后，就可以测试一下，页面效果如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817359.png" alt="image-20231012114155894"></p>
+<h4 id="2-2-2-实现前后端数据交互"><a href="#2-2-2-实现前后端数据交互" class="headerlink" title="2.2.2 实现前后端数据交互"></a>2.2.2 实现前后端数据交互</h4><p>前面我们已经完成了页面头部效果开发，接下来就需要开发前后端数据交互的动态效果。</p>
+<p>第一步：为查询按钮绑定单击事件</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817360.png" alt="image-20231016094210211"></p>
+<p>第二步：在methods中定义 pageQuery 方法，先验证当前方法能否正常执行</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817361.png" alt="image-20231016094354605"></p>
+<p>注意：按照开发规范，真正发送Ajax请求的代码需要封装到 api目录下的ts文件中（src&#x2F;api&#x2F;employee.ts）</p>
+<p>第三步：在src&#x2F;api&#x2F;employee.ts 中定义 getEmployeeList 方法，实现发送Ajax请求获取分页数据</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817362.png" alt="image-20231016094612536"></p>
+<p>注意：发送 Ajax 请求的URL地址需要和前面我们设计的分页查询接口对应</p>
+<p>第四步：在员工管理组件中导入 employee.ts 中定义的方法，并在data() 方法中定义分页相关的模型数据</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817363.png" alt="image-20231016094930398"></p>
+<p>注意：需要将name属性和上面的员工姓名输入框进行双向绑定，如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817364.png" alt="image-20231016095018274"></p>
+<p>第五步：在pageQuery 方法中调用 getEmployeeList 方法</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817365.png" alt="image-20231016095152184"></p>
+<h4 id="2-2-3-自动发送Ajax请求"><a href="#2-2-3-自动发送Ajax请求" class="headerlink" title="2.2.3 自动发送Ajax请求"></a>2.2.3 自动发送Ajax请求</h4><p>前面的代码我们已经实现了前后端数据交互，但是有一个问题，就是只有在点击查询按钮时才会发生Ajax请求，实现分页数据查询。我们通常需要的是在当前页面（组件）加载后，就需要发送Ajax请求，查询第一页的数据。要实现这个效果，我们可以通过vue的生命周期方法，即created方法来做到，代码如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817366.png" alt="image-20231016095540340"></p>
+<h4 id="2-2-4-使用表格展示分页数据"><a href="#2-2-4-使用表格展示分页数据" class="headerlink" title="2.2.4 使用表格展示分页数据"></a>2.2.4 使用表格展示分页数据</h4><p>前面我们已经实现了前后端数据交互，现在就需要将后端返回的数据通过表格展示出来，我们可以使用ElementUI提供的表格组件，具体使用方法可以参照官方提供的示例 <a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/table">https://element.eleme.io/#/zh-CN/component/table</a></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817367.png" alt="image-20231016100031134"></p>
+<h4 id="2-2-5-使用分页条实现翻页效果"><a href="#2-2-5-使用分页条实现翻页效果" class="headerlink" title="2.2.5 使用分页条实现翻页效果"></a>2.2.5 使用分页条实现翻页效果</h4><p>使用 ElementUI 提供的分页条组件，并绑定事件处理函数，具体使用方法可以参照官方提供的示例 <a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/pagination">https://element.eleme.io/#/zh-CN/component/pagination</a></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817368.png" alt="image-20231016100300675"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817369.png" alt="image-20231016100327628"></p>
+<h3 id="2-3-功能测试"><a href="#2-3-功能测试" class="headerlink" title="2.3 功能测试"></a>2.3 功能测试</h3><p>可以通过下面两种方式来测试：</p>
+<ul>
+<li>直接进行前后端联调，查看页面效果</li>
+<li>通过浏览器F12查看数据交互过程</li>
+</ul>
+<h2 id="3-启用禁用员工账号"><a href="#3-启用禁用员工账号" class="headerlink" title="3. 启用禁用员工账号"></a>3. 启用禁用员工账号</h2><h3 id="3-1-需求分析和接口设计"><a href="#3-1-需求分析和接口设计" class="headerlink" title="3.1 需求分析和接口设计"></a>3.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817370.png" alt="image-20231016103554407"></p>
+<p>可以对状态为“启用” 的员工账号进行“禁用”操作</p>
+<p>可以对状态为“禁用”的员工账号进行“启用”操作</p>
+<p>状态为“禁用”的员工账号不能登录系统</p>
+<p>接口设计如下：</p>
+<p> <strong>基本信息</strong></p>
+<p><strong>Path：</strong> &#x2F;admin&#x2F;employee&#x2F;status&#x2F;{status}</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application&#x2F;json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>status</td>
+<td>1</td>
+<td>状态，1为启用 0为禁用</td>
+</tr>
+</tbody></table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td></td>
+<td>员工id</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="3-2-代码开发"><a href="#3-2-代码开发" class="headerlink" title="3.2 代码开发"></a>3.2 代码开发</h3><p>第一步：为启用、禁用按钮绑定单击事件</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817371.png" alt="image-20231016154949134"></p>
+<p>第二步：编写对应的处理函数handleStartOrStop</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817372.png" alt="image-20231016155041179"></p>
+<p>到此可以先测试一下，检查当前方法能否成功执行，页面效果如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817373.png" alt="image-20231016155124396"></p>
+<p>第三步：在 employee.ts 中封装启用禁用员工账号方法，发送Ajax请求</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817374.png" alt="image-20231016155246041"></p>
+<p>注意：发送请求的方式和相关参数，必须和前面的接口设计保持一致</p>
+<p>第四步：在员工管理组件中引入上面定义的enableOrDisableEmployee方法，并完善 handleStartOrStop 方法</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817375.png" alt="image-20231016155426898"></p>
+<p>第五步：代码优化，如果是管理员账号则不允许更改账号状态</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817376.png" alt="image-20231016155558430"></p>
+<h3 id="3-3-功能测试"><a href="#3-3-功能测试" class="headerlink" title="3.3 功能测试"></a>3.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817377.png" alt="image-20231016152210849"></p>
+<h2 id="4-新增员工"><a href="#4-新增员工" class="headerlink" title="4. 新增员工"></a>4. 新增员工</h2><h3 id="4-1-需求分析和接口设计"><a href="#4-1-需求分析和接口设计" class="headerlink" title="4.1 需求分析和接口设计"></a>4.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析，产品原型如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817378.png" alt="image-20231017105355195"></p>
+<p>新增员工时需要录入 账号、员工姓名、手机号、性别、身份证号等信息。其中账号因为是登录凭证，所以必须是唯一的。手机号要求必须是合法的11位手机号码，身份证号为合法的18位身份证号码。</p>
+<p>当新员工入职后，可以通过当前的新增员工功能来为新员工开通账号，新员工通过开通的账号来登录商家管理端系统。</p>
+<p>接口设计如下：</p>
+<p> <strong>基本信息</strong></p>
+<p><strong>Path：</strong> &#x2F;admin&#x2F;employee</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application&#x2F;json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td>员工id</td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>idNumber</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>身份证</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>姓名</td>
+<td></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>手机号</td>
+<td></td>
+</tr>
+<tr>
+<td>sex</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>性别</td>
+<td></td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>用户名</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="4-2-代码开发"><a href="#4-2-代码开发" class="headerlink" title="4.2 代码开发"></a>4.2 代码开发</h3><p>要开发新增员工前端代码，首先需要了解添加员工业务功能的操作步骤：</p>
+<ol>
+<li>在员工管理列表页面，点击 “添加员工”按钮，跳转到新增页面</li>
+<li>在新增员工页面录入员工相关信息</li>
+<li>点击“保存”按钮完成新增操作</li>
+</ol>
+<p>接下来我们就可以按照上面的操作步骤来具体开发前端的代码。</p>
+<p>第一步：为“添加员工”按钮绑定单击事件</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817379.png" alt="image-20231017162453327"></p>
+<p>第二步：编写 handleAddEmp 方法，进行路由跳转</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817380.png" alt="image-20231017162515941"></p>
+<p>注意：在路由文件中已经配置了如下路由规则</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817381.png" alt="image-20231017162553386"></p>
+<p>第三步：根据产品原型，开发页面元素</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817382.png" alt="image-20231017162651760"></p>
+<p>第四步：定义模型数据和表单校验规则</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817383.png" alt="image-20231017162927506"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817384.png" alt="image-20231017162808963"></p>
+<p>第五步：在 employee.ts 中封装新增员工方法，发送Ajax请求，实现前后端交互</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817385.png" alt="image-20231017163005227"></p>
+<p>注意：</p>
+<ul>
+<li>发送请求的方式和相关参数，必须和前面的接口设计保持一致</li>
+<li>使用此方法时，别忘了在组件中通过import导入</li>
+</ul>
+<p>第六步：在 methods 中定义提交表单的方法 submitForm</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817386.png" alt="image-20231017163116948"></p>
+<h3 id="4-3-功能测试"><a href="#4-3-功能测试" class="headerlink" title="4.3 功能测试"></a>4.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+<h2 id="5-修改员工"><a href="#5-修改员工" class="headerlink" title="5. 修改员工"></a>5. 修改员工</h2><h3 id="5-1-需求分析和接口设计"><a href="#5-1-需求分析和接口设计" class="headerlink" title="5.1 需求分析和接口设计"></a>5.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析，产品原型如下：</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817378.png" alt="image-20231017105355195"></p>
+<p>修改员工时需要回显 账号、员工姓名、手机号、性别、身份证号等信息。其中账号因为是登录凭证，所以必须是唯一的。手机号要求必须是合法的11位手机号码，身份证号为合法的18位身份证号码。根据需要对数据进行修改即可。</p>
+<p>修改员工功能涉及到2个接口，分别是根据id查询员工信息和根据id修改员工信息。具体接口设计如下：</p>
+<p>（1）根据id查询员工 接口</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> &#x2F;admin&#x2F;employee&#x2F;{id}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>请求参数</strong></p>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>100</td>
+<td>员工id</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ createTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ createUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ idNumber</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ password</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ phone</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ sex</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ status</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ updateTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ updateUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ username</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>（2）根据id修改员工信息 接口</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> &#x2F;admin&#x2F;employee</p>
+<p><strong>Method：</strong> PUT</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application&#x2F;json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>idNumber</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sex</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="5-2-代码开发"><a href="#5-2-代码开发" class="headerlink" title="5.2 代码开发"></a>5.2 代码开发</h3><p>要开发修改员工前端代码，首先需要了解修改员工业务功能的操作步骤：</p>
+<ol>
+<li>在员工管理列表页面点击 “修改”按钮，跳转到修改页面</li>
+<li>在修改员工页面录入员工相关信息</li>
+<li>点击“保存”按钮完成修改操作</li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>由于添加员工和修改员工的表单项非常类似，所以添加和修改操作可以共用同一个页面（addEmployee.vue）</li>
+<li>修改员工涉及到原始数据回显，所以页面跳转时需要传递员工id作为参数</li>
+</ul>
+<p>接下来我们就可以按照上面的操作步骤来具体开发前端的代码。</p>
+<p>第一步：在员工管理页面中，为“修改”按钮绑定单击事件，用于跳转到修改页面</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817387.png" alt="image-20231018153123546"></p>
+<p>第二步：在methods中编写 handleUpdateEmp 方法，实现路由跳转</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817388.png" alt="image-20231018153201351"></p>
+<p>注意：使用路由对象的push方法在进行路由跳转时，可以通过地址栏传递参数，具体语法为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123;<span class="attr">path</span>: 路由路径, <span class="attr">query</span>:&#123;参数名:参数值&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第三步：在 addEmployee.vue 组件中定义模型数据optType，用于区分本次操作是新增还是修改</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817389.png" alt="image-20231018153639687"></p>
+<p>注意：区分当前操作是新增员工还是修改员工，只需要尝试获取路由参数id。如果能获取到则当前操作为修改，否则为新增。具体获取路由参数的语法为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="property">query</span>.参数名</span><br></pre></td></tr></table></figure>
+
+<p>第四步：如果是修改操作，需要根据id查询员工原始信息用于页面回显，需要在 employee.ts 中创建queryEmployeeById方法</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817390.png" alt="image-20231018154041788"></p>
+<p>注意：</p>
+<ul>
+<li>发送请求的方式和相关参数，必须和前面的接口设计保持一致</li>
+<li>使用此方法时，别忘了在组件中通过import导入</li>
+</ul>
+<p>第五步：在 addEmployee.vue 组件的 created 方法中查询员工原始信息用于页面数据回显 </p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817391.png" alt="image-20231018154225861"></p>
+<p>到目前位置已经实现了员工信息的回显，可以进行简单的测试，如果回显没有问题再继续开发后面的代码</p>
+<p>第六步：如果是修改操作，“保存并继续添加员工” 按钮则不需要显示，通过 v-if 指令进行判断</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817392.png" alt="image-20231018154415419"></p>
+<p>第七步：在 employee.ts 中创建方法，用于修改员工，发送Ajax请求</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817393.png" alt="image-20231018154443989"></p>
+<p>注意：</p>
+<ul>
+<li>发送请求的方式和相关参数，必须和前面的接口设计保持一致</li>
+<li>使用此方法时，别忘了在组件中通过import导入</li>
+</ul>
+<p>第八步：修改 addEmployee.vue 组件中的 submitForm 方法，需要根据当前操作类型执行新增或者修改操作</p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202406101817394.png" alt="image-20231018154601719"></p>
+<h3 id="5-3-功能测试"><a href="#5-3-功能测试" class="headerlink" title="5.3 功能测试"></a>5.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Lu Jingxiang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">http://example.com/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Lu Jingxiang's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86/" title="苍穹外卖——前端套餐管理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">苍穹外卖——前端套餐管理</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94vue%E8%BF%9B%E9%98%B6/" title="苍穹外卖——vue进阶"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">苍穹外卖——vue进阶</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94vue%E8%BF%9B%E9%98%B6/" title="苍穹外卖——vue进阶"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-10</div><div class="title">苍穹外卖——vue进阶</div></div></a></div><div><a href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86/" title="苍穹外卖——前端套餐管理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-06-10</div><div class="title">苍穹外卖——前端套餐管理</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Lu Jingxiang</div><div class="author-info__description">Language: Java</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/1067367579"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/1067367579" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1067367579@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E3%80%81%E5%91%98%E5%B7%A5%E7%AE%A1%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">前端环境搭建、员工管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">课程内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">1.2.</span> <span class="toc-text">1. 前端环境搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.1 技术选型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E7%86%9F%E6%82%89%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2 熟悉前端代码结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%91%98%E5%B7%A5%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.</span> <span class="toc-text">2. 员工分页查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.1 需求分析和接口设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.2 代码开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E5%88%B6%E4%BD%9C%E9%A1%B5%E9%9D%A2%E5%A4%B4%E9%83%A8%E6%95%88%E6%9E%9C"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">2.2.1 制作页面头部效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E5%AE%9E%E7%8E%B0%E5%89%8D%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">2.2.2 实现前后端数据交互</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81Ajax%E8%AF%B7%E6%B1%82"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">2.2.3 自动发送Ajax请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-4-%E4%BD%BF%E7%94%A8%E8%A1%A8%E6%A0%BC%E5%B1%95%E7%A4%BA%E5%88%86%E9%A1%B5%E6%95%B0%E6%8D%AE"><span class="toc-number">1.3.2.4.</span> <span class="toc-text">2.2.4 使用表格展示分页数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-5-%E4%BD%BF%E7%94%A8%E5%88%86%E9%A1%B5%E6%9D%A1%E5%AE%9E%E7%8E%B0%E7%BF%BB%E9%A1%B5%E6%95%88%E6%9E%9C"><span class="toc-number">1.3.2.5.</span> <span class="toc-text">2.2.5 使用分页条实现翻页效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.3.</span> <span class="toc-text">2.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%90%AF%E7%94%A8%E7%A6%81%E7%94%A8%E5%91%98%E5%B7%A5%E8%B4%A6%E5%8F%B7"><span class="toc-number">1.4.</span> <span class="toc-text">3. 启用禁用员工账号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.4.1.</span> <span class="toc-text">3.1 需求分析和接口设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.4.2.</span> <span class="toc-text">3.2 代码开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.4.3.</span> <span class="toc-text">3.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%96%B0%E5%A2%9E%E5%91%98%E5%B7%A5"><span class="toc-number">1.5.</span> <span class="toc-text">4. 新增员工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.5.1.</span> <span class="toc-text">4.1 需求分析和接口设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.5.2.</span> <span class="toc-text">4.2 代码开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.5.3.</span> <span class="toc-text">4.3 功能测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BF%AE%E6%94%B9%E5%91%98%E5%B7%A5"><span class="toc-number">1.6.</span> <span class="toc-text">5. 修改员工</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E5%92%8C%E6%8E%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.6.1.</span> <span class="toc-text">5.1 需求分析和接口设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91"><span class="toc-number">1.6.2.</span> <span class="toc-text">5.2 代码开发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.6.3.</span> <span class="toc-text">5.3 功能测试</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86/" title="苍穹外卖——前端套餐管理">苍穹外卖——前端套餐管理</a><time datetime="2024-06-10T10:18:01.000Z" title="发表于 2024-06-10 18:18:01">2024-06-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="苍穹外卖——前端环境搭建">苍穹外卖——前端环境搭建</a><time datetime="2024-06-10T10:16:41.000Z" title="发表于 2024-06-10 18:16:41">2024-06-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94vue%E8%BF%9B%E9%98%B6/" title="苍穹外卖——vue进阶">苍穹外卖——vue进阶</a><time datetime="2024-06-10T10:14:18.000Z" title="发表于 2024-06-10 18:14:18">2024-06-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/07/%E5%9B%BE/" title="图">图</a><time datetime="2024-03-07T01:31:49.000Z" title="发表于 2024-03-07 09:31:49">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/01/%E9%93%B6%E8%A1%8C%E6%8E%92%E9%98%9F%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/" title="银行排队模拟算法">银行排队模拟算法</a><time datetime="2024-03-01T05:52:37.000Z" title="发表于 2024-03-01 13:52:37">2024-03-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Lu Jingxiang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
