@@ -54,7 +54,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-06-10 18:22:03'
+  postUpdate: '2024-09-01 08:07:44'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -152,143 +152,7 @@
       }
       detectApple()
     })(window)</script><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Lu Jingxiang's blog" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Lu Jingxiang's blog"><span class="site-name">Lu Jingxiang's blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Lu Jingxiang's blog</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/1067367579" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1067367579@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86/" title="苍穹外卖——前端套餐管理">苍穹外卖——前端套餐管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-10T10:18:01.000Z" title="发表于 2024-06-10 18:18:01">2024-06-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">套餐管理课程内容
-套餐分页查询
-启售停售套餐
-删除套餐
-新增套餐
-
-1. 套餐分页查询1.1 需求分析和接口设计根据产品原型来了解需求，套餐分页查询的产品原型如下：
-
-业务规则：
-
-根据页码展示套餐信息(套餐名称、套餐图片、套餐分类、价格、售卖状态、最后操作时间等)
-每页展示10条数据
-分页查询时可以根据需要，输入套餐名、套餐分类、售卖状态 进行查询
-
-要展示套餐分页数据，就需要前后端进行数据交互，对应的接口有两个：
-
-分类查询接口（用于套餐分类下拉框中分类数据展示）
-套餐分页查询接口
-
-（1）分类查询接口
- 基本信息
-Path： &#x2F;admin&#x2F;category&#x2F;list
-Method： GET
-请求参数
-Query
-
-
-
-参数名称
-是否必须
-示例
-备注
-
-
-
-type
-否
-2
-分类类型：1为菜品分类，2为套餐分类
-
-
-返回数据
-
-
-
-名称
-类型
-是否必须
-默认值
-备注
-其他信息
-
-
-
-code
-integer
-必须
-
-
-format: int32
-
-
-data
-object []
-非必须
-
-
-item 类型: object
-
-
-├─ createTime ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="苍穹外卖——前端环境搭建">苍穹外卖——前端环境搭建</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-10T10:16:41.000Z" title="发表于 2024-06-10 18:16:41">2024-06-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">前端环境搭建、员工管理课程内容
-前端环境搭建
-
-员工分页查询
-
-启用禁用员工账号
-
-新增员工
-
-修改员工
-
-
-1. 前端环境搭建1.1 技术选型本项目使用到的前端技术如下：
-
-node.js
-vue
-ElementUI
-axios
-vuex
-vue-router
-typescript
-
-1.2 熟悉前端代码结构直接导入课程资料中提供的苍穹外卖项目前端初始工程，此工程中已经开发了部分功能，后续我们在此基础上开发新功能即可。
-导入后的效果如下：
-
-主要代码在src目录中，src目录结构如下：
-
-下面重点介绍一下src中的重点文件和目录：
-
-api：存放封装了Ajax请求文件的目录
-components：公共组件存放目录
-views：存放视图组件的目录
-App.vue：项目的主组件，页面的入口文件
-main.ts：整个项目的入口文件
-router.ts：路由文件
-
-注意：我们上面导入的初始工程中并没有前端项目运行所依赖的JS包，需要在终端通过 npm install 命令进行安装。安装完成后，可以看到生成了node_modules目录，目录中就是安装的JS包，效果如下：
-
-接下来，我们通过初 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94vue%E8%BF%9B%E9%98%B6/" title="苍穹外卖——vue进阶">苍穹外卖——vue进阶</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-10T10:14:18.000Z" title="发表于 2024-06-10 18:14:18">2024-06-10</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="content">vue基础回顾+进阶课程内容
-VUE 基础回顾
-路由 Vue-Router
-状态管理 vuex
-TypeScript
-
-1. VUE 基础回顾1.1 基于脚手架创建前端工程1.1.1 环境要求要想基于脚手架创建前端工程，需要具备如下环境要求：
-
-​	node.js 	前端项目的运行环境
-​	npm          JavaScript的包管理工具
-​	Vue CLI    基于Vue进行快速开发的完整系统，实现交互式的项目脚手架
-
-安装完node.js后，可以通过命令行来查看版本号，如下：
-
-安装 Vue CLI，命令如下：
-
-1.1.2 操作过程使用 Vue CLI 创建前端工程的方式：
-
-​	方式一：vue create 项目名称
-​	方式二：vue ui
-
-重点介绍使用 vue ui 命令创建前端工程的过程：
-第一步：在命令行输入命令 vue ui,在浏览器ui界面中选择前端工程存放的位置
-
-第二步：点击“在此创建新项目”按钮，跳转到创建新项目设置页面
-
-第三步：填写项目名称、选择包管理器为npm，点击“下一步”按钮
-
-第四步：选择 Default(Vue 2)，点击”创建项目 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/07/%E5%9B%BE/" title="图">图</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-03-07T01:31:49.000Z" title="发表于 2024-03-07 09:31:49">2024-03-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">图
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Lu Jingxiang's blog"><span class="site-name">Lu Jingxiang's blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Lu Jingxiang's blog</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/1067367579" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1067367579@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/07/%E5%9B%BE/" title="图">图</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-03-07T01:31:49.000Z" title="发表于 2024-03-07 09:31:49">2024-03-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">图
 数据结构当中 比较难的一个知识点了 抽象
 图的基本概念图是由顶点集合及顶点见的关系组成的一种数据结构，G&#x3D;(V,E) 其中
 顶点结合是有穷非空集合
@@ -375,7 +239,7 @@ num % 8 求出数据在具体数组位置的下标
 用相应的映射关系表示状态
 BitSet的实现原理博客
 自定义BitSet代码
-1234567891011121314151 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树"><img class="post-bg" src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402231612915.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-23T03:49:22.000Z" title="发表于 2024-02-23 11:49:22">2024-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">红黑树
+1234567891011121314151 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树"><img class="post-bg" src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402231612915.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="红黑树"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/02/23/%E7%BA%A2%E9%BB%91%E6%A0%91/" title="红黑树">红黑树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-23T03:49:22.000Z" title="发表于 2024-02-23 11:49:22">2024-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">红黑树
 红黑树概念：红黑树，是一种二叉搜索树，但在每个结点上增加一个存储位表示结点的颜色，可以是Red或Black。 通过对任何一条从根到叶子的路径上各个结点着色方式的限制，&#x3D;&#x3D;红黑树确保没有一条路径会比其他路径长出俩倍，因而是接近平衡的。
 红黑树并不是绝对平衡 只是相对平衡，而AVL树是绝对平衡的
 
@@ -392,11 +256,89 @@ BitSet的实现原理博客
  最短路径 ： 当前路径上全部都是黑色的节点
 最长路径： 红黑交替（保证了与最短路径黑色个数相同 同时红色尽可能的多）–红色的儿子不能是红色
 ​		又因为根节点必须是黑色 所以极端情况下最长路径就是最短路径的两倍
-说明：一个正常的二叉树 不会出现这种一条路径全都是 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="page-number" href="/page/3/#content-inner">3</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Lu Jingxiang</div><div class="author-info__description">Language: Java</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/1067367579"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/1067367579" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1067367579@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E5%A5%97%E9%A4%90%E7%AE%A1%E7%90%86/" title="苍穹外卖——前端套餐管理">苍穹外卖——前端套餐管理</a><time datetime="2024-06-10T10:18:01.000Z" title="发表于 2024-06-10 18:18:01">2024-06-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94%E5%89%8D%E7%AB%AF%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="苍穹外卖——前端环境搭建">苍穹外卖——前端环境搭建</a><time datetime="2024-06-10T10:16:41.000Z" title="发表于 2024-06-10 18:16:41">2024-06-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/10/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E2%80%94%E2%80%94vue%E8%BF%9B%E9%98%B6/" title="苍穹外卖——vue进阶">苍穹外卖——vue进阶</a><time datetime="2024-06-10T10:14:18.000Z" title="发表于 2024-06-10 18:14:18">2024-06-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/07/%E5%9B%BE/" title="图">图</a><time datetime="2024-03-07T01:31:49.000Z" title="发表于 2024-03-07 09:31:49">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/01/%E9%93%B6%E8%A1%8C%E6%8E%92%E9%98%9F%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/" title="银行排队模拟算法">银行排队模拟算法</a><time datetime="2024-03-01T05:52:37.000Z" title="发表于 2024-03-01 13:52:37">2024-03-01</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+说明：一个正常的二叉树 不会出现这种一条路径全都是 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/22/AVL%E6%A0%91-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/" title="AVL树:二叉平衡树">AVL树:二叉平衡树</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-22T08:52:32.000Z" title="发表于 2024-02-22 16:52:32">2024-02-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">二叉平衡树找工作：​	提前批：准备好了 就可以试试 不要等
+​	没准备好： –》
+​	什么时候准备好？
+​	怎么准备？
+​	简历 -&gt; 面试官问你简历的那些重点？ 知道吗？
+
+课看完了 -》项目至少看一个
+
+简历写完了
+
+就可以投递了 
+面试才是最好的准备
+大量的面试 才能更好的成长【取决于每次面试之后，都要好好把这次面试总结了】必须笔试要通过 
+如何通过笔试？？ 笔试才是最难的 -》
+
+笔试强训48天
+
+课堂代码
+
+《剑指offer》
+
+
+如果从今天开始 再不弥补 那么真的太危险了
+实验才是检验真理的唯一标准
+基础比较好 笔试强训48天之后 去做牛客的大厂校招真题
+19年开始往后 都是线上笔试
+不管实习过没有 正规的流程里面就是有笔试的
+选择题+代码题
+选择题+问答题+代码题
+代码题
+是不是某个公司的笔试没过，那么整个秋招就和这个公司无缘了？
+实习没有笔试：80%
+提前批没有笔试：80%
+提前批：提前批会在正式大规模招聘之前先招优秀的，提前准备好的
+SP专场：特殊offer 普通15w 特殊25w
+
+高阶数据结构的学习大公司问的比较多：AVL ？ 
+会让手写代码吗？
+​	插入是 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/19/%E5%8F%8D%E5%B0%84%E6%9E%9A%E4%B8%BELambda-JavaSE%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%A4%8D%E4%B9%A0/" title="反射枚举Lambda+JavaSE与数据结构复习">反射枚举Lambda+JavaSE与数据结构复习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-19T14:37:36.000Z" title="发表于 2024-02-19 22:37:36">2024-02-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java%E8%AF%AD%E6%B3%95/">Java语法</a></span></div><div class="content">反射枚举Lambda
+反射
+
+
+类名
+用途
+
+
+
+class类
+代表类的实体，在运行的java应用程序中表示类和接口
+
+
+Field类
+代表类的成员变量&#x2F;类的属性
+
+
+Method类
+代表类的方法
+
+
+Constructor类
+代表类的构造方法
+
+
+Class类 反射机制的起源
+编译后的.class文件 放到JVM中 被解析为一个对象 就是Class类
+getDeclaredField(String name) 可以访问所有权限的字段
+getField(String name) 只能访问特定权限的字段
+获取class对象：
+ 第一种，使用 Class.forName(“类的全路径名”); 静态方法。
+前提：已明确类的全路径名。
+第二种，使用 .class 方法。
+说明：仅适合在编译前就已经明确要操作的 Class
+第三种，使用类对象的 getClass() 方法
+Class 对象 只有一个 无论获取多少次 都是那个Class对象
+优点：
+
+对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法
+增加程序的灵活性和扩展性，降低耦合性，提高 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/19/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" title="两数之和">两数之和</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-19T06:49:06.000Z" title="发表于 2024-02-19 14:49:06">2024-02-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/LeetCode/">LeetCode</a></span></div><div class="content">LeetCode热题100 第一题 两数之和两树之和思路： 重点 找到相应的值和对应的下标 建立关系 所以 我们这里要使用HashMap HashMap的时间效率最高 查找 插入 的时间复杂度都为O(1)我们要尽量在一轮循环中结束 把时间复杂度控制在O(N) 那么我们就可以采取边遍历数组边对hashMap操作的思路代码与具体思路如下：
+12345678910111213141516171819202122232425262728293031323334353637383940class Solution &#123;    public int[] twoSum(int[] nums, int target) &#123;        // int front = 0;        // int []res = new int[2];        // while(front!=nums.length-1)        // &#123;        //     for(int i=front+1;i&lt;nums.length;i++)        //     &# ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Lu Jingxiang</div><div class="author-info__description">Language: Java</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/1067367579"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/1067367579" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1067367579@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/07/%E5%9B%BE/" title="图">图</a><time datetime="2024-03-07T01:31:49.000Z" title="发表于 2024-03-07 09:31:49">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/01/%E9%93%B6%E8%A1%8C%E6%8E%92%E9%98%9F%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/" title="银行排队模拟算法">银行排队模拟算法</a><time datetime="2024-03-01T05:52:37.000Z" title="发表于 2024-03-01 13:52:37">2024-03-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/29/B%E6%A0%91/" title="B树">B树</a><time datetime="2024-02-29T15:13:46.000Z" title="发表于 2024-02-29 23:13:46">2024-02-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/27/LRUCache/" title="LRUCache">LRUCache</a><time datetime="2024-02-27T03:38:08.000Z" title="发表于 2024-02-27 11:38:08">2024-02-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集">并查集</a><time datetime="2024-02-26T11:21:40.000Z" title="发表于 2024-02-26 19:21:40">2024-02-26</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E8%AF%AD%E6%B3%95/"><span class="card-category-list-name">Java语法</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/skills/"><span class="card-category-list-name">skills</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/"><span class="card-category-list-name">前端</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">1</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">算法</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.37em; color: #99a4b2">前端</a> <a href="/tags/LeetCode%E7%83%AD%E9%A2%98100/" style="font-size: 1.1em; color: #999">LeetCode热题100</a> <a href="/tags/missing-semester/" style="font-size: 1.1em; color: #999">missing-semester</a> <a href="/tags/Java%E8%AF%AD%E6%B3%95/" style="font-size: 1.23em; color: #999ea6">Java语法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">数据结构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">18</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">23</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-06-10T10:22:03.546Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Lu Jingxiang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java%E8%AF%AD%E6%B3%95/"><span class="card-category-list-name">Java语法</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/LeetCode/"><span class="card-category-list-name">LeetCode</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/skills/"><span class="card-category-list-name">skills</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">算法</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/LeetCode%E7%83%AD%E9%A2%98100/" style="font-size: 1.1em; color: #999">LeetCode热题100</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">算法</a> <a href="/tags/missing-semester/" style="font-size: 1.1em; color: #999">missing-semester</a> <a href="/tags/Java%E8%AF%AD%E6%B3%95/" style="font-size: 1.3em; color: #99a1ac">Java语法</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">数据结构</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">18</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">20</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-09-01T00:07:44.380Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Lu Jingxiang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
