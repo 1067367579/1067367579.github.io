@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:published_time" content="2024-02-29T15:13:46.000Z">
-<meta property="article:modified_time" content="2024-02-29T15:16:49.015Z">
+<meta property="article:modified_time" content="2024-09-01T00:57:21.689Z">
 <meta property="article:author" content="Lu Jingxiang">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -56,7 +56,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-02-29 23:16:49'
+  postUpdate: '2024-09-01 08:57:21'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -154,13 +154,13 @@
       }
       detectApple()
     })(window)</script><meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/atom.xml" title="Lu Jingxiang's blog" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Lu Jingxiang's blog"><span class="site-name">Lu Jingxiang's blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">B树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-29T15:13:46.000Z" title="发表于 2024-02-29 23:13:46">2024-02-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-29T15:16:49.015Z" title="更新于 2024-02-29 23:16:49">2024-02-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="B树"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><hr>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Lu Jingxiang's blog"><span class="site-name">Lu Jingxiang's blog</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">B树</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-29T15:13:46.000Z" title="发表于 2024-02-29 23:13:46">2024-02-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-01T00:57:21.689Z" title="更新于 2024-09-01 08:57:21">2024-09-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="B树"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="B树"><a href="#B树" class="headerlink" title="B树"></a>B树</h2><hr>
 <p>B-树： 不要读作B减树 这个-是分隔符 意思是 多叉平衡树</p>
 <p>二叉搜索树 AVL树 红黑树 都是二叉的</p>
 <p>多叉 就不只是二叉了</p>
-<p><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312469.png" alt="之前学过的查找结构"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010844038.png"></p>
 <p>以上结构适合用于数据量不是很大的情况，如果数据量非常大，一次性无法加载到内存中，使用上述结构就不是很<br>方便。比如：使用平衡树搜索一个大文件</p>
-<p><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312471.png" alt="截屏2024-02-27 12.50.24"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010844207.png"></p>
 <p>缺陷：</p>
 <ol>
 <li>树的高度比较高，查找时最差情况下要比较树的高度次</li>
@@ -169,8 +169,7 @@
 <li>降低树的高度—多叉树平衡树</li>
 </ol>
 <p>要想提高IO速度 那么就需要 降低树的高度 –》 每一层尽可能的多放数据 -&gt; 多叉树</p>
-<img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312472.png" alt="截屏2024-02-27 12.54.57" style="zoom:130%;" />
-
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010844038.png"></p>
 <p>内存当中的数据 是容易丢失的 带电存储的</p>
 <p>new的对象 都在内存里面</p>
 <p>面试问题：数据存储到hashMap和存储到文件当中 有什么区别？</p>
@@ -217,8 +216,7 @@
 <p>通常情况下M取1024</p>
 <p>整个分裂的过程当中 会一直向上分裂 直到根节点分裂结束</p>
 <p>每次移动节点当中的数据的时候 孩子节点+parent节点 都需要进行适当的改动</p>
-<img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312473.png" alt="推演B树的插入过程" style="zoom:130%;" />
-
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010844022.png"></p>
 <hr>
 <h5 id="插入过程总结："><a href="#插入过程总结：" class="headerlink" title="插入过程总结："></a>插入过程总结：</h5><ol>
 <li>如果树为空，直接插入新节点中，该节点为树的根节点</li>
@@ -280,7 +278,7 @@
 <p>非叶子节点只是存储了关键字 </p>
 <p>KV结构的b+树 K–》 非叶子节点 K，V–〉叶子节点</p>
 <p>叶子节点当中存储了数据 链表连接起来的</p>
-<p><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312474.png" alt="截屏2024-02-29 21.28.50"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010851034.png"></p>
 <p>B+树的搜索与B-树基本相同，区别是B+树只有达到叶子节点才能命中(B-树可以在非叶子节点中命中)，其性能也等<br>价与在关键字全集做一次二分查找。<br>B+树的特性：</p>
 <ol>
 <li>所有关键字都出现在叶子节点的链表中(稠密索引)，且链表中的节点都是有序的。</li>
@@ -289,14 +287,13 @@
 <li>更适合文件索引系统</li>
 </ol>
 <p><strong>B+树的插入</strong></p>
-<p><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312475.png"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010851228.png"></p>
 <hr>
 <h3 id="B-树"><a href="#B-树" class="headerlink" title="B*树"></a>B*树</h3><p>B*树是B+树的变形，在B+树的非根和非叶子节点再增加指向兄弟节点的指针。</p>
-<img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312476.png" alt="截屏2024-02-29 21.45.14" style="zoom:50%;" />
-
-<p><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312477.png" alt="截屏2024-02-29 22.12.24"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010851340.png"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010851633.png"></p>
 <hr>
-<h3 id="B树-B-树-B-树的对比总结"><a href="#B树-B-树-B-树的对比总结" class="headerlink" title="B树 B+树 B*树的对比总结"></a>B树 B+树 B*树的对比总结</h3><p><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312478.png" alt="截屏2024-02-29 22.12.52"></p>
+<h3 id="B树-B-树-B-树的对比总结"><a href="#B树-B-树-B-树的对比总结" class="headerlink" title="B树 B+树 B*树的对比总结"></a>B树 B+树 B*树的对比总结</h3><p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010852166.png"></p>
 <hr>
 <h3 id="B树的应用"><a href="#B树的应用" class="headerlink" title="B树的应用"></a>B树的应用</h3><p>B+树 – MySQL索引</p>
 <p>数据库中需要存储大量的数据 那么数据库中的数据都是存到哪？  –》磁盘</p>
@@ -312,27 +309,25 @@
 <p>索引基于表 而不是基于数据库</p>
 <hr>
 <h4 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h4><p>MyISAM引擎是MySQL5.5.8版本之前默认的存储引擎，不支持事务，支持全文检索，使用B+Tree作为索引结构，<br>叶节点的data域存放的是数据记录的地址，其结构如下：</p>
-<img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312479.png" alt="截屏2024-02-29 22.51.11" style="zoom:50%;" />
-
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010852048.png"></p>
 <p>是不是所有的东西 都需要建立索引 当然不是</p>
 <p>上图是以以Col1为主键，MyISAM的示意图，可以看出MyISAM的索引文件仅仅保存数据记录的地址。在MyISAM<br>中，主索引和辅助索引（Secondary key）在结构上没有任何区别，只是主索引要求key是唯一的，而辅助索引的<br>key可以重复。如果想在Col2上建立一个辅助索引，则此索引的结构如下图所示：</p>
-<img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312480.png" alt="截屏2024-02-29 22.53.00" style="zoom:50%;" />
-
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010852774.png"></p>
 <p>同样也是一棵B+Tree，data域保存数据记录的地址。因此，MyISAM中索引检索的算法为首先按照B+Tree搜索算<br>法搜索索引，如果指定的Key存在，则取出其data域的值，然后以data域的值为地址，读取相应数据记录。<br>MyISAM的索引方式也叫做“非聚集索引”的</p>
 <p><strong>非聚集索引 -》 非聚簇索引 索引文件和数据文件不在一块</strong></p>
 <p><strong>聚集索引就是存放的物理顺序和列中的顺序一样。一般设置主键索引就为聚集索引</strong></p>
 <hr>
 <h4 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h4><p>InnoDB存储引擎支持事务，其设计目标主要面向在线事务处理的应用，从MySQL数据库5.5.8版本开始，InnoDB<br>存储引擎是默认的存储引擎。InnoDB支持B+树索引、全文索引、哈希索引。但InnoDB使用B+Tree作为索引结构<br>时，具体实现方式却与MyISAM截然不同。<br>第一个区别是InnoDB的数据文件本身就是索引文件。MyISAM索引文件和数据文件是分离的，索引文件仅保存数<br>据记录的地址。而InnoDB索引，表数据文件本身就是按B+Tree组织的一个索引结构，这棵树的叶节点data域保<br>存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引</p>
-<img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312481.png" alt="截屏2024-02-29 22.55.48" style="zoom:50%;" />
-
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010852995.png"></p>
 <p>上图是InnoDB主索引（同时也是数据文件）的示意图，可以看到叶节点包含了完整的数据记录，这种索引叫做聚<br>集索引。因为InnoDB的数据文件本身要按主键聚集，所以InnoDB要求表必须有主键（MyISAM可以没有），如果<br>没有显式指定，则MySQL系统会自动选择一个可以唯一标识数据记录的列作为主键，如果不存在这种列，则<br>MySQL自动为InnoDB表生成一个隐含字段作为主键，这个字段长度为6个字节，类型为长整形。<br>第二个区别是InnoDB的辅助索引data域存储相应记录主键的值而不是地址,所有辅助索引都引用主键作为data<br>域。</p>
 <p><strong>InnoDB属于聚集索引 索引文件和数据文件是在一起的</strong></p>
-<img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312482.png" alt="截屏2024-02-29 22.56.36" style="zoom:50%;" />
-
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010852658.png"></p>
 <p>聚集索引这种实现方式使得按主键的搜索十分高效，但是辅助索引搜索需要检索两遍索引：首先检索辅助索引获得<br>主键，然后用主键到主索引中检索获得记录。</p>
 <p><strong>此时辅助索引当中的data域不是一条完整的数据 只是存储的是主键 所以如果要寻找这个主键的所有数据 必须 拿着这个主键继续查找</strong></p>
 <p><strong>如果按照主键建立索引 效率非常高 如果辅助索引 效率反而不高</strong></p>
-<p>问题：既然在表格上建立索引可以提高搜索效率，那是否可以在一个表格上任意建立索引？<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yangecnu/p/Introduce-B-Tree-and-B-Plus-Tree.html">http://www.cnblogs.com/yangecnu/p/Introduce-B-Tree-and-B-Plus-Tree.html</a> <a target="_blank" rel="noopener" href="http://www.cnblogs.com/oldho">http://www.cnblogs.com/oldho</a><br>rse&#x2F;archive&#x2F;2009&#x2F;11&#x2F;16&#x2F;1604009.html <a target="_blank" rel="noopener" href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">http://blog.codinglabs.org/articles/theory-of-mysql-index.html</a><br>数据库的底层原理</p>
+<p>问题：既然在表格上建立索引可以提高搜索效率，那是否可以在一个表格上任意建立索引？<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yangecnu/p/Introduce-B-Tree-and-B-Plus-Tree.html">http://www.cnblogs.com/yangecnu/p/Introduce-B-Tree-and-B-Plus-Tree.html</a> </p>
+<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/oldhorse/archive/2009/11/16/1604009.html">http://www.cnblogs.com/oldhorse/archive/2009/11/16/1604009.html</a>  </p>
+<p><a target="_blank" rel="noopener" href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html">http://blog.codinglabs.org/articles/theory-of-mysql-index.html</a><br>数据库的底层原理</p>
 <hr>
 <h3 id="索引该用哪种数据结构？"><a href="#索引该用哪种数据结构？" class="headerlink" title="索引该用哪种数据结构？"></a>索引该用哪种数据结构？</h3><ol>
 <li><p>红黑树高度太高</p>
@@ -350,9 +345,8 @@
 <p>​	<strong>B+树非叶子节点不存储data 这样一个节点可以存储更多的key 可以使得树更矮 所以IO操作更少</strong></p>
 <p>​	<strong>叶子节点相连 更便于进行范围查找</strong></p>
 <hr>
-<h3 id="课堂板书："><a href="#课堂板书：" class="headerlink" title="课堂板书："></a>课堂板书：</h3><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312483.png" alt="截屏2024-02-29 23.10.27" style="zoom:150%;" />
-
-<p><img src="https://raw.githubusercontent.com/1067367579/picgophotos/main/img/202402292312484.png" alt="2022-07-19-B树"></p>
+<h3 id="课堂板书："><a href="#课堂板书：" class="headerlink" title="课堂板书："></a>课堂板书：</h3><p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010852476.png"></p>
+<p><img src="https://mdphotos2.oss-cn-shenzhen.aliyuncs.com/img/202409010852417.png"></p>
 <hr>
 <h3 id="MySQL-常见面试题"><a href="#MySQL-常见面试题" class="headerlink" title="MySQL 常见面试题"></a>MySQL 常见面试题</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/59838091">https://zhuanlan.zhihu.com/p/59838091</a></p>
 </article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Lu Jingxiang</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/02/29/B%E6%A0%91/">http://example.com/2024/02/29/B%E6%A0%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Lu Jingxiang's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/03/01/%E9%93%B6%E8%A1%8C%E6%8E%92%E9%98%9F%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/" title="银行排队模拟算法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">银行排队模拟算法</div></div></a></div><div class="next-post pull-right"><a href="/2024/02/27/LRUCache/" title="LRUCache"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">LRUCache</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2024/02/27/LRUCache/" title="LRUCache"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-27</div><div class="title">LRUCache</div></div></a></div><div><a href="/2024/02/04/%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97/" title="优先级队列"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-04</div><div class="title">优先级队列</div></div></a></div><div><a href="/2024/02/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-26</div><div class="title">并查集</div></div></a></div><div><a href="/2024/02/04/%E9%A1%BA%E5%BA%8F%E8%A1%A8/" title="顺序表"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-04</div><div class="title">顺序表</div></div></a></div><div><a href="/2024/02/22/AVL%E6%A0%91-%E4%BA%8C%E5%8F%89%E5%B9%B3%E8%A1%A1%E6%A0%91/" title="AVL树:二叉平衡树"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-22</div><div class="title">AVL树:二叉平衡树</div></div></a></div><div><a href="/2024/02/18/map%E5%92%8Cset/" title="Map和Set"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-18</div><div class="title">Map和Set</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Lu Jingxiang</div><div class="author-info__description">Language: Java</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/1067367579"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/1067367579" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:1067367579@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#B%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">B树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#B%E6%A0%91%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">B树概念</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A8%E6%BC%94B%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5"><span class="toc-number">1.1.0.1.</span> <span class="toc-text">推演B树的插入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">1.1.0.2.</span> <span class="toc-text">插入过程总结：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B%E6%A0%91%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">B树的实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%E6%A0%91%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">1.2.</span> <span class="toc-text">B树的删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-%E6%A0%91-%E5%92%8C-B-%E6%A0%91"><span class="toc-number">1.3.</span> <span class="toc-text">B+树 和 B*树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-%E6%A0%91"><span class="toc-number">1.4.</span> <span class="toc-text">B*树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%E6%A0%91-B-%E6%A0%91-B-%E6%A0%91%E7%9A%84%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">B树 B+树 B*树的对比总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B%E6%A0%91%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.6.</span> <span class="toc-text">B树的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MyISAM"><span class="toc-number">1.6.1.</span> <span class="toc-text">MyISAM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#InnoDB"><span class="toc-number">1.6.2.</span> <span class="toc-text">InnoDB</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E8%AF%A5%E7%94%A8%E5%93%AA%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-number">1.7.</span> <span class="toc-text">索引该用哪种数据结构？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%BE%E5%A0%82%E6%9D%BF%E4%B9%A6%EF%BC%9A"><span class="toc-number">1.8.</span> <span class="toc-text">课堂板书：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">1.9.</span> <span class="toc-text">MySQL 常见面试题</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/07/%E5%9B%BE/" title="图">图</a><time datetime="2024-03-07T01:31:49.000Z" title="发表于 2024-03-07 09:31:49">2024-03-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/01/%E9%93%B6%E8%A1%8C%E6%8E%92%E9%98%9F%E6%A8%A1%E6%8B%9F%E7%AE%97%E6%B3%95/" title="银行排队模拟算法">银行排队模拟算法</a><time datetime="2024-03-01T05:52:37.000Z" title="发表于 2024-03-01 13:52:37">2024-03-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/29/B%E6%A0%91/" title="B树">B树</a><time datetime="2024-02-29T15:13:46.000Z" title="发表于 2024-02-29 23:13:46">2024-02-29</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/27/LRUCache/" title="LRUCache">LRUCache</a><time datetime="2024-02-27T03:38:08.000Z" title="发表于 2024-02-27 11:38:08">2024-02-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/26/%E5%B9%B6%E6%9F%A5%E9%9B%86/" title="并查集">并查集</a><time datetime="2024-02-26T11:21:40.000Z" title="发表于 2024-02-26 19:21:40">2024-02-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Lu Jingxiang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
